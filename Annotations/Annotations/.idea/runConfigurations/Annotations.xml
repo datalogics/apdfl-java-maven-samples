@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Annotations" type="Application" factoryName="Application">
+    <envs>
+      <env name="PATH" value="./target/lib" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.datalogics.pdfl.samples.Annotations" />
+    <module name="Annotations" />
+    <option name="VM_PARAMETERS" value="-Dcom.datalogics.PDFL.library.path=./target/lib" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
