@@ -8,6 +8,21 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
+  <profiles>
+    <profile>
+      <id>Windows64</id>
+      <activation>
+        <os>
+          <family>windows</family>
+          <arch>amd64</arch>
+        </os>
+      </activation>
+      <properties>
+        <jni.classifier>win-x86-64-jni</jni.classifier>
+      </properties>
+    </profile>
+    <!-- TODO: Add Mac and Linux profiles -->
+  </profiles>
   <dependencies>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
@@ -25,7 +40,7 @@
       <artifactId>pdfl</artifactId>
       <version>18.0.4.14</version>
       <type>zip</type>
-      <classifier>win-x86-64-jni</classifier>
+      <classifier>${jni.classifier}</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
@@ -85,7 +100,7 @@
                 <artifactItem>
                   <groupId>com.datalogics.pdfl</groupId>
                   <artifactId>pdfl</artifactId>
-                  <classifier>win-x86-64-jni</classifier>
+                  <classifier>${jni.classifier}</classifier>
                   <type>zip</type>
                   <outputDirectory>${project.build.directory}/lib</outputDirectory>
                 </artifactItem>
