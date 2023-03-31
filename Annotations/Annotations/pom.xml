@@ -21,7 +21,19 @@
         <jni.classifier>win-x86-64-jni</jni.classifier>
       </properties>
     </profile>
-    <!-- TODO: Add Mac and Linux profiles -->
+    <profile>
+      <id>MacArm</id>
+      <activation>
+        <os>
+          <family>mac</family>
+          <arch>aarch64</arch>
+        </os>
+      </activation>
+      <properties>
+        <jni.classifier>mac-arm-64-jni</jni.classifier>
+      </properties>
+    </profile>
+    <!-- TODO: Add Linux profile -->
   </profiles>
   <dependencies>
     <dependency>
