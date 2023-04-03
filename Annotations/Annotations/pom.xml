@@ -33,7 +33,19 @@
         <jni.classifier>mac-arm-64-jni</jni.classifier>
       </properties>
     </profile>
-    <!-- TODO: Add Linux profile -->
+    <profile>
+      <id>Linux64</id>
+      <activation>
+        <os>
+          <!-- Use OS <name> instead of <family> because the "unix" <family> also includes Mac -->
+          <name>Linux</name>
+          <arch>amd64</arch>
+        </os>
+      </activation>
+      <properties>
+        <jni.classifier>linux-x86-64-jni</jni.classifier>
+      </properties>
+    </profile>
   </profiles>
   <dependencies>
     <dependency>
