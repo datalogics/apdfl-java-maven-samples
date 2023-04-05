@@ -5,7 +5,7 @@
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.datalogics.pdfl.samples.Annotations" />
     <module name="Annotations" />
-    <option name="VM_PARAMETERS" value="-Dcom.datalogics.PDFL.library.path=./target/lib" />
+    <option name="VM_PARAMETERS" value="-Djava.library.path=./target/lib" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
