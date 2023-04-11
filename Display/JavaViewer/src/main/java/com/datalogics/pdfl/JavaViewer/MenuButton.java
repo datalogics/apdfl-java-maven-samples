@@ -100,7 +100,7 @@ public class MenuButton extends AbstractButton {
 
         this.dropDownButton = new DropDown();
         final Dimension dropDownSize = new Dimension((int) (buttonSize.width / 100.0f * 25), buttonSize.height);
-        this.dropDownButton.setIcon(new ImageIcon(getClass().getResource("/com/datalogics/PDFL/JavaViewer/Resources/TriangleArrow.gif")));
+        this.dropDownButton.setIcon(new ImageIcon(getClass().getClassLoader().getResource("TriangleArrow.gif")));
         this.dropDownButton.setPreferredSize(dropDownSize);
         this.dropDownButton.setMinimumSize(dropDownSize);
         this.dropDownButton.setMaximumSize(dropDownSize);

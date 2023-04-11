@@ -38,10 +38,9 @@ public enum AvailableActions {
     ACTION_RESOLUTION("Monitor Resolution");
 
     AvailableActions(String name, String iconName, String selectedIconName, KeyStroke accelerator) {
-        final String resourcePath = "/com/datalogics/PDFL/JavaViewer/Resources/";
         this.name = name;
-        this.iconResource = new ImageIcon(getClass().getResource(resourcePath + iconName));
-        this.selectedIconResource = new ImageIcon(getClass().getResource(resourcePath + selectedIconName));
+        this.iconResource = new ImageIcon(getClass().getClassLoader().getResource(iconName));
+        this.selectedIconResource = new ImageIcon(getClass().getClassLoader().getResource(selectedIconName));
         this.accelerator = accelerator;
     }
 
