@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ImageExtraction" type="Application" factoryName="Application">
+    <envs>
+      <env name="PATH" value="./target/lib" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.datalogics.pdfl.samples.ImageExtraction" />
+    <module name="ImageExtraction" />
+    <option name="VM_PARAMETERS" value="-Djava.library.path=./target/lib" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
