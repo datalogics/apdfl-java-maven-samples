@@ -49,15 +49,15 @@ public class PDFObjectTreeIconRenderer extends DefaultTreeCellRenderer{
      */
     public PDFObjectTreeIconRenderer(){
         super();
-        integerIcon  = new ImageIcon(getClass().getResource("icons/Integer1616.png"));
-        booleanIcon  = new ImageIcon(getClass().getResource("icons/Boolean1616.png"));
-        realIcon     = new ImageIcon(getClass().getResource("icons/Real1616.png"));
-        nameIcon     = new ImageIcon(getClass().getResource("icons/Name1616.png"));
-        stringIcon   = new ImageIcon(getClass().getResource("icons/String1616.png"));
-        arrayIcon    = new ImageIcon(getClass().getResource("icons/Array1616.png"));
-        dictIcon     = new ImageIcon(getClass().getResource("icons/Dictionary1616.png"));
-        streamIcon   = new ImageIcon(getClass().getResource("icons/Stream1616.png"));
-        documentIcon = new ImageIcon(getClass().getResource("icons/Document1616.png"));
+        integerIcon  = new ImageIcon(getClass().getClassLoader().getResource("icons/Integer1616.png"));
+        booleanIcon  = new ImageIcon(getClass().getClassLoader().getResource("icons/Boolean1616.png"));
+        realIcon     = new ImageIcon(getClass().getClassLoader().getResource("icons/Real1616.png"));
+        nameIcon     = new ImageIcon(getClass().getClassLoader().getResource("icons/Name1616.png"));
+        stringIcon   = new ImageIcon(getClass().getClassLoader().getResource("icons/String1616.png"));
+        arrayIcon    = new ImageIcon(getClass().getClassLoader().getResource("icons/Array1616.png"));
+        dictIcon     = new ImageIcon(getClass().getClassLoader().getResource("icons/Dictionary1616.png"));
+        streamIcon   = new ImageIcon(getClass().getClassLoader().getResource("icons/Stream1616.png"));
+        documentIcon = new ImageIcon(getClass().getClassLoader().getResource("icons/Document1616.png"));
     }
 
     /** Overrides getTreeCellRendererComponent and determines which icon to

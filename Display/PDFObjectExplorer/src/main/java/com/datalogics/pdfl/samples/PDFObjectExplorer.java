@@ -126,7 +126,7 @@ public class PDFObjectExplorer extends javax.swing.JFrame {
         jToolBar1.setRollover(true);
         jToolBar1.setAlignmentX(0.0F);
 
-        openFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("icons/FileOpen1616.png"))); // NOI18N
+        openFile.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("icons/FileOpen1616.png"))); // NOI18N
         openFile.setToolTipText("Open a PDF");
         openFile.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         openFile.setFocusable(false);
@@ -139,7 +139,7 @@ public class PDFObjectExplorer extends javax.swing.JFrame {
         });
         jToolBar1.add(openFile);
 
-        refreshFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("icons/Refresh1616.png"))); // NOI18N
+        refreshFile.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("icons/Refresh1616.png"))); // NOI18N
         refreshFile.setToolTipText("Refresh Document");
         refreshFile.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         refreshFile.setFocusable(false);
