@@ -1,4 +1,4 @@
-package com.datalogics.pdfl.samples.Images.ImageEmbedICCProfile;
+package com.datalogics.pdfl.samples;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

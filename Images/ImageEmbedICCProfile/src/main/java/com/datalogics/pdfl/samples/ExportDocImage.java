@@ -1,4 +1,4 @@
-package com.datalogics.pdfl.samples.Images.ImageEmbedICCProfile;
+package com.datalogics.pdfl.samples;
 
 import com.datalogics.PDFL.ColorSpace;
 import com.datalogics.PDFL.CompressionCode;
