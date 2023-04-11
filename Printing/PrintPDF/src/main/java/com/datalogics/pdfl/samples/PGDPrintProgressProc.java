@@ -1,4 +1,4 @@
-package com.datalogics.pdfl.samples.Printing.PrintPDF;
+package com.datalogics.pdfl.samples;
 /*
  * 
  * A sample which demonstrates the use of the DLE API to obtain information about

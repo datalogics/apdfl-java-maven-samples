@@ -1,4 +1,4 @@
-package com.datalogics.pdfl.samples.Printing.PrintPDFGUI;
+package com.datalogics.pdfl.samples;
 
 import javax.swing.*;
 import java.awt.*;
