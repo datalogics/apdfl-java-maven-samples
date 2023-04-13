@@ -131,6 +131,24 @@
               </artifactItems>
             </configuration>
           </execution>
+          <execution>
+            <id>unpack-license</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.datalogics.pdfl</groupId>
+                  <artifactId>pdfl</artifactId>
+                  <classifier>license</classifier>
+                  <type>zip</type>
+                  <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
     </plugins>
