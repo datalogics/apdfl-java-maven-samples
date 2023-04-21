@@ -1,2 +1,2 @@
 # maven-samples
-Temporary place for updated maven samples
+Java samples set up for use with Maven and IDEA IntelliJ
