@@ -22,7 +22,7 @@ Licensing and Pricing options are customized to your usage and requirements. For
 - Content modification - merge, split, flatten, layers
 - Compression / optimization / linearization for Fast Web View
 - Display, Render, Print
-- Conversion to PDF/A, PDF/X, EPS, PostScript, XPS, Factur-X, ZUGFeRD, image formats (JPG, TIFF, PNG, BMP)
+- Conversion to PDF/A, PDF/X, EPS, PostScript, XPS, Factur-X, ZUGFeRD, image formats (JPG, TIFF, PNG, BMP), Office formats (docx, xlsx, pptx)
 - Forms - Import, export, flatten, AcroForms
 - Image manipulation and conversion
 - OCR
