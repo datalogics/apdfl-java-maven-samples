@@ -49,6 +49,11 @@
   </profiles>
   <dependencies>
     <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20210307</version>
+    </dependency>
+    <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
       <version>18.19.0</version>
