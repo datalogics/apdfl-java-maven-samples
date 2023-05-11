@@ -5,7 +5,7 @@ This sample illustrates how to convert colors in a PDF document.
 Converts a PDF to Microsoft Word, Excel, and PowerPoint formats. (Available only for Windows.)
 
 ## ***CreateDocFromXPS***
-Opens a XPS document and converts it to a PDF document.
+Opens a XPS document and converts it to a PDF document. (Available only for Windows and Linux.)
 
 ## ***Factur-XConverter***
 Converts a PDF document and a Invoice XML document to a Factur-X compliant PDF document.
