@@ -30,3 +30,10 @@ Licensing and Pricing options are customized to your usage and requirements. For
 - Printing
 - Security - Password, encrypt, watermark
 - Search for and replace or edit text
+
+## Instructions for trying out the samples
+- Clone this repository to your system (64-bit Intel Windows, 64-bit Intel Linux, or Apple Silicon)
+- Select a sample you would like to try
+- Open the folder containing the sample in [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+- From the Maven tab in the right sidebar, run the "Compile" goal
+- Run the sample
