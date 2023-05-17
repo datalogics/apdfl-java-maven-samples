@@ -1,9 +1,8 @@
 ![Datalogics Adobe PDF Library](https://raw.github.com/datalogics/dl-icons/develop/DLBanner_Nuget.png)
 
-- [Documentation](https://dev.datalogics.com/apdfl/Documentation/Java/index.html)
-- [Release Notes](https://dev.datalogics.com/adobe-pdf-library/release-notes-adobe-pdf-library-v-18/)
-- [Support](https://www.datalogics.com/resources/support/)
-- [Homepage](https://www.datalogics.com/)
+[Documentation](https://dev.datalogics.com/apdfl/Documentation/DotNET/Overview/index.html) &nbsp;|&nbsp; [Release Notes](https://dev.datalogics.com/adobe-pdf-library/release-notes-adobe-pdf-library-v-18/) &nbsp; [Support](https://www.datalogics.com/tech-support-pdfs/) &nbsp; | &nbsp;[Homepage](https://www.datalogics.com)
+
+[![Download a Free Trial](https://img.shields.io/badge/maven%20package-APDFL%20Free%20Trial-blue?style=plastic&logo=apachemaven)](https://central.sonatype.com/artifact/com.datalogics.pdfl/pdfl)
 
 ## Adobe PDF Library
 Built upon Adobe source code used for Acrobat, Datalogics Adobe PDF Library SDK provides stable, reliable code and the flexibility to develop with Java, C#, VB (VB.NET), or C++. APDFL is the most complete SDK for PDF creation, manipulation and management. Best for enterprise/larger organizations of developers and independent software vendors (ISVs) who need to incorporate Adobe's PDF functionality into their own internal or external applications.
