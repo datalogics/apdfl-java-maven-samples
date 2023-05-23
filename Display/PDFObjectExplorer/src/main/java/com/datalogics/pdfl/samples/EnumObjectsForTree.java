@@ -1,9 +1,6 @@
 /*
  * Copyright (c) 2009-2017, Datalogics, Inc. All rights reserved.
  *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
- *
  *
  * ========================== Enum Objects For Tree ===========================
  * This file contains two classes.  Both operate the same way but handle two

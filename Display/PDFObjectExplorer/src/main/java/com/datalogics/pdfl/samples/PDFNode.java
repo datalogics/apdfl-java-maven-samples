@@ -1,8 +1,5 @@
 /*
- * Copyright (c) 2009-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2009-2023, Datalogics, Inc. All rights reserved.
  *
  *
  * =============================== PDF NODE ===================================

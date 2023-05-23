@@ -7,10 +7,7 @@
  * The sample has two optional arguments, one a JPG image file, and the other the name of the default PDF output file.
  * The program imports the JPG file into a PDF and saves it to an output PDF file.
  * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 

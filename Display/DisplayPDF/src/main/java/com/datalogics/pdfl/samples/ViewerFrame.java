@@ -1,12 +1,9 @@
 /*
  * ViewerFrame.java
  *
- * Created on December 3, 2007, 2:26 PM
  *
- * Copyright (c) 2017, Datalogics, Inc. All rights reserved. 
+ * Copyright (c) 2017-2023, Datalogics, Inc. All rights reserved. 
  *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
  */
 
 package com.datalogics.pdfl.samples;

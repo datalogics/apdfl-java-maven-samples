@@ -17,10 +17,7 @@ import com.datalogics.PDFL.LaunchAction;
  * An action is added to the rectangle in the form of a hyperlink; if the reader clicks
  * on the rectangle, a different PDF file opens, showing an image.
  * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 

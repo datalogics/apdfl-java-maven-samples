@@ -15,13 +15,8 @@ import com.datalogics.PDFL.ViewDestination;
  * 
  * This program creates a PDF file with an embedded hyperlink, which takes the reader to the second page of the document.
  * 
- * For more detail see the description of the LinkAnnotation sample program on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/working-with-annotations-in-pdf-files#linkannotation
- * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
  */
 public class LinkAnnotations {
 

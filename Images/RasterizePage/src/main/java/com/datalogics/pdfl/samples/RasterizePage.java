@@ -27,10 +27,7 @@ public class RasterizePage {
 	 * 3. An output image file with content drawn from an unrotated PDF page, but that contains only the top half of
 	 *    the original page.
 	 *
-	 * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
-	 *
-	 * For complete copyright information, refer to:
-	 * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+	 * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
 	 *
 	 */
 	
@@ -72,7 +69,7 @@ public class RasterizePage {
             pip.setPageDrawFlags(EnumSet.of(DrawFlags.USE_ANNOT_FACES));
 
             // Set the PixelWidth to be exactly 400 pixels.
-            // We don't need to set the PixelHeight, as DLE will calculate
+            // We don't need to set the PixelHeight, as the Library will calculate
             // this for us automatically based on the PixelWidth and resolution.
             //
             // If you'd like a specific height, you can specify that too.
@@ -193,7 +190,7 @@ public class RasterizePage {
     {
         // Create a PageImageParams with the default settings and set
         // the color space as appropriate.
-        // We'll let DLE decide the final pixel dimensions of
+        // We'll let the Library decide the final pixel dimensions of
         // the bitmap, so we won't change these settings from the default.
 
         PageImageParams pip = new PageImageParams();

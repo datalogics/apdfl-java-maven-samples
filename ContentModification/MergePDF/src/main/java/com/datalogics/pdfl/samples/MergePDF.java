@@ -15,9 +15,6 @@ import com.datalogics.PDFL.*;
  *
  * Copyright (c) 2007-2021, Datalogics, Inc. All rights reserved.
  *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
- *
  */
 public class MergePDF {
     public static void main (String[] args) throws Throwable

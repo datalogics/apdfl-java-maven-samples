@@ -1,8 +1,6 @@
 /*
- * Copyright (c) 2009-2017, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2009-2023, Datalogics, Inc. All rights reserved.
  *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
  *
  * ============================ PDFFilenameFilter ===================================
  * This filter is used with the file dialog to limit displayed files to those

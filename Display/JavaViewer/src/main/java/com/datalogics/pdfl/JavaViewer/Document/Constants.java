@@ -1,9 +1,6 @@
 /*
- * Copyright (C) 2011-2017, Datalogics, Inc. All rights reserved.
+ * Copyright (C) 2011-2023, Datalogics, Inc. All rights reserved.
  * 
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
- *
  */
 
 package com.datalogics.pdfl.JavaViewer.Document;

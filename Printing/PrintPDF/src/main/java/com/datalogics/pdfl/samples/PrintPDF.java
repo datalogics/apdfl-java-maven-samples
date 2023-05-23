@@ -14,13 +14,7 @@ import com.datalogics.PDFL.*;
  * computer in use. This program is useful in that it identifies the API you need to use to
  * print PDF files. It also generates a Postscript (PS) output file. 
  *
- * For more detail see the description of this sample on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/printing-pdf-files-and-generating-postscript-ps-files-from-pdf/
- * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 
@@ -57,7 +51,7 @@ public class PrintPDF {
 		printParams.setExpandToFit(true);
 
 		// Printing with specified page ranges
-		// Uncomment next code to allow DLE printing with specified page ranges
+		// Uncomment next code to allow printing with specified page ranges
 
 		// List<PageRange> pageRanges = new ArrayList<PageRange>();
 
@@ -79,7 +73,7 @@ public class PrintPDF {
 		doc.printToFile(userParams, "PrintPDF_out.prn");
 
 
-		// Export as (DLE/PDFL composed) PostScript...
+		// Export as (PDFL composed) PostScript...
 		//
 		// PostScript files produced via this *export* method are suitable
 		// for Distillation, Normalization, etc. If a PostScript Printer
@@ -105,7 +99,7 @@ public class PrintPDF {
 		// Now let's, print directly to a printer (without ui)...
 		//
 		// Printed output from the following method is composed by the selected
-		// printer's driver; along with assistance from DLE / APDFL. The actual
+		// printer's driver; along with assistance from APDFL. The actual
 		// output format will vary (e.g., PCL, PostScript, XPS, etc.). PostScript
 		// files produced via a PostScript driver and this method are NOT suitable
 		// for Distillation, Normalization, etc. All output from the method below
@@ -125,32 +119,6 @@ public class PrintPDF {
 		userParams.useDefaultPrinter(doc);
 		//Print the document and report progress on-screen.
 		doc.print(userParams, new PGDPrintCancelProc(false), new PGDPrintProgressProc());
-
-
-		// Print to a printer
-		// For a list of the current print drivers available under WinNT, look at:
-		// HKEY_CURRENT_USER\Software\Microsoft\WindowsNT\CurrentVersion\Devices
-		// but some special virtual printers modify their ports, so pose a print dialog
-		// SetPageSize property and ShrinkToFit are incompatible. So we need to set SetPageSize to False
-		// to print to a printer in a proper way.
-		//userParams.getPrintParams().setSetPageSize(false);
-		//userParams.setShrinkToFit(true);
-
-		//if (userParams.posePrintDialog(doc))
-
-		// #if WIN32
-		// This sets the file name that the printer driver knows about
-		// userParams.inFileName = args[0];
-		// #endif
-		//{
-			// Added override of dialog box paper height and width
-			// because UseMediaBox seems to yield a printed product that more closely
-			// resembles what comes out of Acrobat.  This eliminates a number of
-			// print problems, including PCL blank page problems.
-			//userParams.setPaperHeight(PrintUserParams.USE_MEDIA_BOX);
-			//userParams.setPaperWidth(PrintUserParams.USE_MEDIA_BOX);
-		    //doc.print(userParams);
-		//}
 		
 		// this properly terminates the library, and is required
 		lib.delete();

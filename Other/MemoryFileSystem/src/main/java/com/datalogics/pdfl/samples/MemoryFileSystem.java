@@ -15,14 +15,11 @@ import com.datalogics.PDFL.TempStoreType;
  * This sample demonstrates how to initialize and use RAM memory instead of the local
  * hard disk to save temporary files, in order to save processing time.
  * 
- * The program sets the DefaultTempStore property of the Adobe PDF Library object to
+ * The program sets the DefaultTempStore property of the Library object to
  * TempStoreType.Memory. The program can also set a maximum amount of RAM to use by
  * applying a value to the DefaultTempStoreMemLimit property.
  *
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 

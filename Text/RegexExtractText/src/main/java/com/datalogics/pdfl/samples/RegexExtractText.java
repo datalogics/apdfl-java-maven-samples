@@ -24,10 +24,7 @@ import org.json.JSONObject;
  * that matches a user-supplied regular expression. The output is a JSON file that
  * has the match information.
  *
- * Copyright (c) 2021, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2021-2023, Datalogics, Inc. All rights reserved.
  *
  */
 

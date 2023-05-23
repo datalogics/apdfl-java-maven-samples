@@ -11,13 +11,7 @@ import com.datalogics.PDFL.NumberStyle;
  * This sample demonstrates working with page labels in a PDF document. Each PDF file has a 
  * data structure that governs how page numbers appear, such as the font and type of numeral.
  *
- * For more detail see the description of the PageLabels sample on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/listing-information-about-values-and-objects-in-pdf-files#pagelabels
- * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 

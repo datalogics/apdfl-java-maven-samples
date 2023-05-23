@@ -20,13 +20,7 @@ import com.datalogics.PDFL.*;
  * dictionary, instead of using a code value as a key to identify an object, a name tree
  * uses names as keys to map to data objects. 
  *
- * For more detail see the description of the NameTrees sample program on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/working-with-large-amounts-of-data-in-a-pdf
- * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 
