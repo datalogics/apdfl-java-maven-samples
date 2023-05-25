@@ -20,15 +20,12 @@ import com.datalogics.PDFL.*;
  * assigned to each section heading. The user could click on a heading link in the Table of Contents 
  * and move directly to the appropriate section of the document.
  * 
- * Open the CreateBookmarks-out.PDF file in Acrobat and click the Bookmark icon to display the bookmarks that
+ * Open the CreateBookmarks-out.PDF file in a PDF Viewer and display the bookmarks that
  * the CreateBookmarks program added to the output PDF document. Several of these bookmarks will zoom to
  * parts of the page. The last three, Child1, 2, and 3, are dummy bookmarks that do not respond when you
  * click on them.  They demonstrate how to rearrange existing bookmarks.
  * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 public class CreateBookmarks 

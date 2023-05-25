@@ -8,14 +8,8 @@ import com.datalogics.PDFL.*;
 /*
  * This sample demonstrates printing a PDF file. It is similar to PrintPDF, but this
  * program provides a user interface.
- * 
- * For more detail see the description of the PrintPDFGUI sample program on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/printing-pdf-files-and-generating-postscript-ps-files-from-pdf
- * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
  *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 
@@ -81,10 +75,6 @@ public class PrintPDFGUI extends JFrame
              // userParams.useDefaultPrinter(doc);
 
              {
-                 // Added override of dialog box paper height and width
-                 // because UseMediaBox seems to yield a printed product that more closely
-                 // resembles what comes out of Acrobat.  This eliminates a number of
-                 // print problems, including PCL blank page problems.
                  userParams.setPaperHeight(PrintUserParams.USE_MEDIA_BOX);
                  userParams.setPaperWidth(PrintUserParams.USE_MEDIA_BOX);
             	 doc.print(userParams);

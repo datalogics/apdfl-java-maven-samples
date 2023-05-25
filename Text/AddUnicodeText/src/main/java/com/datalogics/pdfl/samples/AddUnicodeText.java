@@ -4,13 +4,7 @@ package com.datalogics.pdfl.samples;
   * 
  * This sample program adds six lines of Unicode text to a PDF file, in six different languages.
  *
- * For more detail see the description of the AddUnicodeText sample program on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/adding-text-and-graphic-elements#addunicodetext
- * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 import com.datalogics.PDFL.Document;

@@ -1,12 +1,9 @@
 /*
  *
- * A sample which demonstrates the use of the DLE API to create a new
+ * A sample which demonstrates how to create a new
  * PDF file and add two pages containing a series of Path and Text elements
  *
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 package com.datalogics.pdfl.samples;

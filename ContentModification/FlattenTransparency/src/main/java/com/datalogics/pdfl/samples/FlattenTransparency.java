@@ -18,13 +18,7 @@ import com.datalogics.PDFL.FlattenTransparencyParams;
  * appears on the page. The process to flatten a set of transparencies merges them
  * into a single image on the page.
  *
- * For more detail see the description of the FlattenTransparency sample program on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/layers-and-transparencies/#flattentransparency 
- * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 
@@ -64,7 +58,7 @@ public class FlattenTransparency {
             if(isTransparent)
             {
                 // Flattening the document will check each page for transparency.
-                // If a page has transparency, DLE will create a new, flattened
+                // If a page has transparency, it will create a new, flattened
                 // version of the page and replace the original page with the
                 // new one.  Because of this, make sure to dispose of outstanding Page objects
                 // that refer to pages in the Document before calling flattenTransparency.

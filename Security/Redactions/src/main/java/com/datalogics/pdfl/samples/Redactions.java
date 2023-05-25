@@ -7,15 +7,9 @@ import com.datalogics.PDFL.*;
 /*
   * 
  * This sample shows how to redact a PDF document. The program opens an input PDF, searches for
- * specific words using the Adobe PDF Library WordFinder, and then removes these words from the text.
+ * specific words using the WordFinder, and then removes these words from the text.
  * 
- * For more detail see the description of the Redactions sample program on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/net-sample-programs/redacting-text-from-a-pdf-document
- *
- * Copyright (c) 2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2017-2023, Datalogics, Inc. All rights reserved.
  *
  */
 

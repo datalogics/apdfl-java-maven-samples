@@ -26,13 +26,7 @@ import com.datalogics.PDFL.ColorConvertParams;
  * Note that the color profile is not embedded by default; rather, the default is not to embed the color profile.
  * The user must set the option to embed to True.
  * 
- * For more detail see the description of the ColorConvertDocument sample program on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/color-conversion
- * 
- * Copyright (c) 2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2017-2023, Datalogics, Inc. All rights reserved.
  *
  */
  

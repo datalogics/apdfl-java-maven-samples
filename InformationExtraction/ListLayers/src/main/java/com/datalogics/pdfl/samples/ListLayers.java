@@ -1,19 +1,12 @@
 package com.datalogics.pdfl.samples;
 /*
  * 
- * A sample which demonstrates the use of the DLE API to list the
+ * A sample which demonstrates how to list the
  * separate color layers of a PDF file.
  *
  * This sample searches for and lists the names of the color layers found in a PDF document. 
- *  
- * For more detail see the description of the List sample programs, and ListLayers, on our Developer’s site,
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/listing-information-about-values-and-objects-in-pdf-files
- * 
  *
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 import java.io.BufferedReader;

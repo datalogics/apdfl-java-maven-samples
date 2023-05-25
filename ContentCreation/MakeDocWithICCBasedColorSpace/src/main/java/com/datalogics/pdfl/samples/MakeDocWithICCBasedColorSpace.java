@@ -9,13 +9,7 @@ import java.util.EnumSet;
 /*
  * This sample demonstrates creating a file containing an ICC-based color space.
  *
- * For more detail see the description of the ColorSpace sample programs on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/getting-pdf-documents-using-color-spaces
- *
  * Copyright (c) 2008-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
  *
  */
 public class MakeDocWithICCBasedColorSpace {

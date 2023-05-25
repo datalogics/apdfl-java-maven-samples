@@ -16,13 +16,7 @@ import com.datalogics.PDFL.*;
  * 
  * This program is similar to ImagefromStream, but in this example the PDF file streams hold text.
  *
- * For more detail see the description of the StreamIO sample program on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/exporting-images-from-pdf-files/#streamio
- * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 
@@ -71,7 +65,7 @@ public class StreamIO {
         static void readFromStream(String filename, String output) throws java.io.IOException {
             //First we create InputStream from the file.
             InputStream in = new FileInputStream(filename);
-            //Second we create ImageInputStream that is required by DLE interface. 
+            //Second we create ImageInputStream as required by the interface.
             //We use MemoryCacheImageInputStream, this means that buffer will be cached in memory.
             //Another option is to use FileCacheImageInputStream with temporary file cache.
             ImageInputStream iin = new javax.imageio.stream.MemoryCacheImageInputStream(in);
@@ -98,13 +92,13 @@ public class StreamIO {
 	        Document doc = new Document(filename);
 
 		    // Add some content to the Document so there will be something to see.
-            doc.setCreator("DLE StreamIO Sample");	        
+            doc.setCreator("StreamIO Sample");
             Page p = doc.createPage(Document.BEFORE_FIRST_PAGE, new Rect(0, 0, 612, 792));
             addContentToPage(p);
             
             //First create OutputStream
             OutputStream out = new FileOutputStream(output);
-            //Second create ImageOutputStream that is required by DLE interface. 
+            //Second create ImageOutputStream as required by the interface. 
             //MemoryCacheImageOutputStream or FileCacheImageOutputStream can be used.
             ImageOutputStream ios = new javax.imageio.stream.MemoryCacheImageOutputStream(out); 
             //Save the document

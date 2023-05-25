@@ -13,10 +13,7 @@ import com.datalogics.PDFL.PageImageParams;
 import com.datalogics.PDFL.RenderIntent;
 
 /*
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 public class ExportDocImage {

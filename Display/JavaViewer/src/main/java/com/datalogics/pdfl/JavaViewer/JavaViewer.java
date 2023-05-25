@@ -1,13 +1,7 @@
 /*
  * This sample is a utility that demonstrates a PDF viewing tool. You can use it to open, display, and edit PDF files.
  * 
- * For more detail see the description of the JavaViewer on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/viewing-pdf-files
- * 
- * Copyright (C) 2011-2017, Datalogics, Inc. All rights reserved.
- * 
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (C) 2011-2023, Datalogics, Inc. All rights reserved.
  *
  */
 

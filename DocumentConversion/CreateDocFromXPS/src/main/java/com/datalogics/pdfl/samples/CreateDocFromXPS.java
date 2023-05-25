@@ -13,12 +13,7 @@ import com.datalogics.PDFL.XPSConvertParams;
  * XML Paper Specification (XPS) is a standard document format that Microsoft created in 2006
  * as an alternative to the PDF format.  
  *
- * Copyright (c) 2007-2010, Datalogics, Inc. All rights reserved.
- *
- * The information and code in this sample is for the exclusive use of Datalogics
- * customers and evaluation users only.  Datalogics permits you to use, modify and
- * distribute this file in accordance with the terms of your license agreement.
- * Sample code is for demonstrative purposes only and is not intended for production use.
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 
@@ -37,9 +32,9 @@ public class CreateDocFromXPS {
             // for creating the document.
             XPSConvertParams xpsparams = new XPSConvertParams();
             
-            // DLE requires a .joboptions file to specify settings for XPS conversion. 
+            // Use a .joboptions file to specify settings for XPS conversion.
             // A default .joboptions file is provided in the Resources directory of 
-            // the DLE distribution.  This file is used by default, but a custom file
+            // the distribution.  This file is used by default, but a custom file
             // can be used instead by setting the pathToSettingsFile property.
             System.out.println("Using settings file located at: " + xpsparams.getPathToSettingsFile());
             

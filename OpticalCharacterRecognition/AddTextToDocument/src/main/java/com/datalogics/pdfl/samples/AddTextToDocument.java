@@ -24,13 +24,7 @@ import com.datalogics.PDFL.Group;
  * Process a document using the optical character recognition engine.
  * Then place the image and the processed text in an output pdf
  * 
- * For more detail see the description of AddTextToDocument on our Developers site, 
- * https://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/optical-character-recognition/
- * 
- * Copyright (c) 2007-2019, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 

@@ -4,13 +4,7 @@
  * information about objects embedded in a PDF file. These objects include arrays, dictionaries,
  * streams of characters, and integers.
  *
- * For more detail see the description of the PDFObjectExplorer sample on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/listing-information-about-values-and-objects-in-pdf-files#pdfobjectexplorer
- * 
- * Copyright (c) 2009-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2009-2023, Datalogics, Inc. All rights reserved.
  *
  */
 package com.datalogics.pdfl.samples;
@@ -34,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 
-// Import classes from DLE
+// Import classes
 import com.datalogics.PDFL.Library;
 import com.datalogics.PDFL.Document;
 import com.datalogics.PDFL.PDFObject;

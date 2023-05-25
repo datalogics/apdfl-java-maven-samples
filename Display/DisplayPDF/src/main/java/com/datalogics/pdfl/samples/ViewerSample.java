@@ -2,14 +2,10 @@ package com.datalogics.pdfl.samples;
 
 /*
  * 
- * A sample which demonstrates the use of the DLE API to view a PDF
- * file and search for text in the file and highlight them using the
- * C# drawing library.
+ * A sample which demonstrates the use of the API to view a PDF
+ * file and search for text in the file and highlight them.
  *
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 import javax.swing.*;

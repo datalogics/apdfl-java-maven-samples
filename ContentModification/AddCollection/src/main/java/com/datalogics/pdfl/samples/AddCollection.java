@@ -28,13 +28,7 @@ import com.datalogics.PDFL.Collection;
  * 
  * A PDF Portfolio can hold and display multiple additional files as attachments.
  * 
- * For more detail see the description of the AddCollection sample program on our Developer's site, 
- * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/working-with-a-pdf-collection-or-portfolio
- * 
- * Copyright (c) 2007-2017, Datalogics, Inc. All rights reserved.
- *
- * For complete copyright information, refer to:
- * http://dev.datalogics.com/adobe-pdf-library/license-for-downloaded-pdf-samples/
+ * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
 
