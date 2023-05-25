@@ -22,6 +22,18 @@
       </properties>
     </profile>
     <profile>
+      <id>MacArm</id>
+      <activation>
+        <os>
+          <family>mac</family>
+          <arch>aarch64</arch>
+        </os>
+      </activation>
+      <properties>
+        <jni.classifier>mac-arm-64-jni</jni.classifier>
+      </properties>
+    </profile>
+    <profile>
       <id>Linux64</id>
       <activation>
         <os>
