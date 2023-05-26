@@ -45,9 +45,6 @@ public class Redactions {
             //
             // For a more in-depth example of using the WordFinder, see the TextExtract sample.
             //
-            // The TextExtract sample is described here.
-            // http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/extracting-text-from-pdf-files
-            //
 
             List<Quad> rainQuads = new ArrayList<Quad>();
 

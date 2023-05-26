@@ -16,7 +16,7 @@ import java.util.List;
 /*
   * 
  * This sample shows how to search a PDF document using regex pattern matching. The program opens an input PDF, searches for
- * words using the Adobe PDF Library DocTextFinder, and then prints these words to the console.
+ * words using the DocTextFinder, and then prints these words to the console.
  *
  * Copyright (c) 2021-2023, Datalogics, Inc. All rights reserved.
  *

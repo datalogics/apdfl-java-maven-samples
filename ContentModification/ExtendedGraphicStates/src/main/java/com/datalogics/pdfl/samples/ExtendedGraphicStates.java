@@ -3,9 +3,9 @@ package com.datalogics.pdfl.samples;
 /*
  * 
  * The Graphics State is an internal data structure in a PDF file that holds the parameters that describe graphics
- * within that file. These parameters define how individual graphics are presented on the page. Adobe Systems introduced
- * the Extended Graphic State to expand the original Graphics State data structure, providing space to define and store
- * more data objects within a PDF.
+ * within that file. These parameters define how individual graphics are presented on the page.
+ * The Extended Graphic State was introduced to expand the original Graphics State data structure, providing space to
+ * define and store more data objects within a PDF.
  * 
  * This sample program shows how to use the Extended Graphic State object to add graphics parameters to an image.
  * 

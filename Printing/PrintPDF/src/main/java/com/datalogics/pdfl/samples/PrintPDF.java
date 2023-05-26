@@ -34,7 +34,7 @@ public class PrintPDF {
 		// Platform print to a file...
 		//
 		// Printed output from the following method is composed by the selected
-		// printer's driver; along with assistance from DLE / APDFL. The actual
+		// printer's driver; along with assistance from APDFL. The actual
 		// output format will vary (e.g., PCL, PostScript, XPS, etc.). PostScript
 		// files produced via a PostScript driver and this method are NOT suitable
 		// for Distillation, Normalization, etc. All output from the method below
@@ -82,8 +82,6 @@ public class PrintPDF {
 		// Consult the PostScript Language Document Structuring Conventions
 		// for more information about the conformance / structure of the
 		// exported PostScript.
-		//
-		// https://partners.adobe.com/public/developer/en/ps/5001.DSC_Spec.pdf
 		//
 		// NOTE: userParams are only valid for ONE print job...
 		// Get fresh parameters 
