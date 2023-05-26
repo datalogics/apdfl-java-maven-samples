@@ -24,9 +24,6 @@ public class DrawSeparations {
 	/*
 	 * This sample demonstrates drawing a list of grayscale separations from a PDF file.
 	 *
-	 * For more detail see the description of the DrawSeparations sample program on our Developer's site, 
-	 * http://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/manipulating-graphics-and-separating-colors-for-images
-	 * 
 	/**
      * @param args the command line arguments
      */

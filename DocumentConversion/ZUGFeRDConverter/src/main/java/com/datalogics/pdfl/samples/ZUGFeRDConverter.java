@@ -16,9 +16,6 @@ import com.datalogics.PDFL.PDFAConvertResult;
  *
  * This sample demonstrates converting the input PDF with the input Invoice ZUGFeRD XML to a ZUGFeRD compliant PDF.
  *
- * For more detail see the description of the ZUGFeRDConverter sample program on our Developer’s site,
- * https://dev.datalogics.com/adobe-pdf-library/sample-program-descriptions/java-sample-programs/converting-and-merging-pdf-content/#zugferdconverter
- *
  * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */

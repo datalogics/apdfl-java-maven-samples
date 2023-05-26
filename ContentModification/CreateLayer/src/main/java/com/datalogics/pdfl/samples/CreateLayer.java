@@ -88,7 +88,7 @@ public class CreateLayer {
         OptionalContentGroup ocg = new OptionalContentGroup(doc, name);
 
         // Add it to the Order array -- this is required so that the OptionalContentGroup
-        // will appear in the 'Layers' control panel in Acrobat.  It will appear in
+        // will appear in the 'Layers' of a PDF Viewer.  It will appear in
         // the control panel with the name given in the OptionalContentGroup constructor.
         OptionalContentOrderArray order_list = doc.getDefaultOptionalContentConfig().getOrder();
         order_list.insert(order_list.getLength(), new OptionalContentOrderLeaf(ocg));
