@@ -1,7 +1,7 @@
 package com.datalogics.pdfl.samples;
 
+import java.io.File;
 import java.util.*;
-
 import com.datalogics.PDFL.*;
 
 /*
@@ -157,7 +157,19 @@ public class EPSSeparations {
 
             for(SeparationPlate p : plates)
             {
+                boolean emptyFile = false;
+                if (p.getEPSOutput().getLength() == 0)
+                {
+                    emptyFile = true;
+                }
+
                 p.getEPSOutput().close();
+
+                if (emptyFile)
+                {
+                    File f = new File("Complex-Pg" + (pgNum + 1) + "-" + p.ColorantName + ".eps");
+                    f.delete();
+                }
             }
         }
     }
