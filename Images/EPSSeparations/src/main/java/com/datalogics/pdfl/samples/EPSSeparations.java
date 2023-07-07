@@ -159,10 +159,10 @@ public class EPSSeparations {
             {
                 p.getEPSOutput().close();
 
-                File f = new File("Complex-Pg" + (pgNum + 1) + "-" + p.getColorantName() + ".eps");
-                if (f.length() == 0)
+                File file = new File("Complex-Pg" + (pgNum + 1) + "-" + p.getColorantName() + ".eps");
+                if (file.length() == 0)
                 {
-                    f.delete();
+                    file.delete();
                 }
             }
         }
