@@ -157,18 +157,12 @@ public class EPSSeparations {
 
             for(SeparationPlate p : plates)
             {
-                boolean emptyFile = false;
-                if (p.getEPSOutput().getLength() == 0)
-                {
-                    emptyFile = true;
-                }
-
                 p.getEPSOutput().close();
 
-                if (emptyFile)
+                File file = new File("Complex-Pg" + (pgNum + 1) + "-" + p.getColorantName() + ".eps");
+                if (file.length() == 0)
                 {
-                    File f = new File("Complex-Pg" + (pgNum + 1) + "-" + p.ColorantName + ".eps");
-                    f.delete();
+                    file.delete();
                 }
             }
         }
