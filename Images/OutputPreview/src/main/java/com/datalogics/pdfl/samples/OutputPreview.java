@@ -21,7 +21,19 @@ import com.datalogics.PDFL.SeparationColorSpace;
  */
 
 public class OutputPreview {
-	 /**
+    public static String CreateOutputFileName(ArrayList<String> colorants) {
+        String outputFileName = "OutputPreview_";
+
+        for (String colorant : colorants) {
+            outputFileName += colorant + "_";
+        }
+
+        outputFileName += ".tiff";
+
+        return outputFileName;
+    }
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -77,11 +89,11 @@ public class OutputPreview {
             // Create Output Preview images using the Specified Colorants
             Image image = pg.getOutputPreviewImage(pg.getCropBox(), pip, colorants);
 
-            image.save(String.format("OutputPreview_%1$s_%2$s.tiff", colorantsToUse.get(0), colorantsToUse.get(1)), ImageType.TIFF);
+            image.save(String.format(CreateOutputFileName(colorantsToUse)), ImageType.TIFF);
 
             Image image2 = pg.getOutputPreviewImage(pg.getCropBox(), pip, colorants2);
 
-            image2.save(String.format("OutputPreview_%1$s_%2$s.tiff", colorantsToUse2.get(0), colorantsToUse2.get(1)), ImageType.TIFF);
+            image2.save(String.format(CreateOutputFileName(colorantsToUse2)), ImageType.TIFF);
 
             pg.delete();
             doc.delete();
