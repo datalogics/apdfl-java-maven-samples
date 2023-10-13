@@ -31,7 +31,7 @@ Licensing and Pricing options are customized to your usage and requirements. For
 - Search for and replace or edit text
 
 ## Running the Samples
-**For 64-bit Intel Windows, 64-bit Intel Linux, or Apple Silicon systems:**
+**For 64-bit Intel Windows, 64-bit Intel Linux, or Mac ARM systems:**
 - Clone this repository to your system
 - Select a sample you would like to try
 - Open the folder containing the sample in [IntelliJ IDEA](https://www.jetbrains.com/idea/)
