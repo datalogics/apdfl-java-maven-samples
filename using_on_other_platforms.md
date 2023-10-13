@@ -1,19 +1,16 @@
-# Using APDFL and Maven on other platforms
+# Using APDFL and Maven on non license managed platforms
 
-## Installing APDFL for other platforms
+## Installing APDFL for non license managed platforms
 
-[Maven Central](https://central.sonatype.com/artifact/com.datalogics.pdfl/pdfl) offers self-activating license managed APDFL packages for 64-bit Windows, 64-bit Intel Linux, and Mac systems
-running Apple Silicon. The samples in this repo will automatically download the APDFL package for your platform via Maven and obtain a 30 day trial license.
+[Maven Central](https://central.sonatype.com/artifact/com.datalogics.pdfl/pdfl) offers self-activating license managed APDFL packages for 64-bit Windows, 64-bit Intel Linux, and Mac systems running Mac ARM. The samples in this repo will automatically download the APDFL package for your platform via Maven and obtain a trial license.
 
-Customers can also obtain APDFL without license management for the same three platforms, plus those listed below. You will recieve a ZIP file with the APDFL components for your platform,
-plus a POM file (`create-artifacts.xml`) that you can use to install APDFL to your local Maven cache, or deploy to private Maven repo on your network. To install the components to your
-local cache, unzip the file and run the command
+Customers can also obtain APDFL without license management for the same three platforms, plus those listed below. You will recieve a ZIP file with the APDFL components for your platform, plus a POM file (`create-artifacts.xml`) that you can use to install APDFL to your local Maven cache, or deploy to private Maven repo on your network. To install the components to your local cache, unzip the file and run the command
 
 ```
 ./mvnw -f create-artifacts.xml install
 ```
 
-## Running the samples on other platforms
+## Running the samples on non license managed platforms
 
 After you've installed APDFL for your platform to your Maven cache, you can run any sample in this repository by updating its POM to find the package for your platform.
 
