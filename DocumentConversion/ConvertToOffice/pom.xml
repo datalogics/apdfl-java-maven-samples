@@ -21,37 +21,50 @@
         <jni.classifier>win-x86-64-jni</jni.classifier>
       </properties>
     </profile>
+    <profile>
+      <id>Linux64</id>
+      <activation>
+        <os>
+          <!-- Use OS <name> instead of <family> because the "unix" <family> also includes Mac -->
+          <name>Linux</name>
+          <arch>amd64</arch>
+        </os>
+      </activation>
+      <properties>
+        <jni.classifier>linux-x86-64-jni</jni.classifier>
+      </properties>
+    </profile>
   </profiles>
   <dependencies>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.23.0</version>
+      <version>18.26.0</version>
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.23.0</version>
+      <version>18.26.0</version>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.23.0</version>
+      <version>18.26.0</version>
       <type>zip</type>
       <classifier>${jni.classifier}</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.23.0</version>
+      <version>18.26.0</version>
       <type>zip</type>
       <classifier>resources</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.23.0</version>
+      <version>18.26.0</version>
       <classifier>javadoc</classifier>
     </dependency>
   </dependencies>

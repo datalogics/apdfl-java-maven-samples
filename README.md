@@ -31,8 +31,12 @@ Licensing and Pricing options are customized to your usage and requirements. For
 - Search for and replace or edit text
 
 ## Running the Samples
-- Clone this repository to your system (64-bit Intel Windows, 64-bit Intel Linux, or Apple Silicon)
+**For 64-bit Intel Windows, 64-bit Intel Linux, or Mac ARM systems:**
+- Clone this repository to your system
 - Select a sample you would like to try
 - Open the folder containing the sample in [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 - From the Maven tab in the right sidebar, run the "Compile" phase
 - Run the sample
+
+**For other systems:**
+See [Using APDFL and Maven on other platforms](using_on_other_platforms.md)
