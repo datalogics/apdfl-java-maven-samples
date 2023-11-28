@@ -43,7 +43,8 @@ public class LinkAnnotations {
 
             Page docpage = doc.getPage(0);
 
-            LinkAnnotation newLink = new LinkAnnotation(docpage, new Rect(100, docpage.CropBox.Top - 25, 200, docpage.CropBox.Top - 50));
+            LinkAnnotation newLink = new LinkAnnotation(docpage,
+                new Rect(100, docpage.getCropBox().getTop() - 25, 200, docpage.getCropBox().getTop() - 50));
 
             // Test some link features
             newLink.setNormalAppearance(newLink.generateAppearance());
