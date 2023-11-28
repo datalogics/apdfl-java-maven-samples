@@ -15,8 +15,8 @@ import com.datalogics.PDFL.ViewDestination;
 
 /*
  * This sample creates a PDF document with a single page, featuring a rectangle.
- * An action is added to the rectangle in the form of a hyperlink; if the reader
- * clicks on the rectangle, the system opens the Datalogics web page.
+ * An action is added to the rectangle in the form of a hyperlink; if the viewer
+ * clicks on the rectangle, it opens a Datalogics web page.
  *
  * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
@@ -24,75 +24,73 @@ import com.datalogics.PDFL.ViewDestination;
 
 public class Actions {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) throws Throwable {
-        System.out.println("Actions sample:");
-        String outFile = "Actions-out.pdf";
+    /**
+     * @param args
+     */
+    public static void main(String[] args) throws Throwable {
+        System.out.println("Action sample:");
+        String outFile = "Action-out.pdf";
 
-    	Library lib = new Library();
+        Library lib = new Library();
 
-		try {
-	        Document doc = new Document();
-	        
-	        Rect pageRect = new Rect(0, 0, 100, 100);
-	        Page docpage = doc.createPage(Document.BEFORE_FIRST_PAGE, pageRect);
-	        System.out.println("Created page.");
-	        
-	        // Create our first link with a URI action
-	        LinkAnnotation newLink = new LinkAnnotation(docpage, new Rect(1.0, 2.0, 3.0, 4.0));
-	        System.out.println(newLink.toString());
-	        
-	        doc.setBaseURI("http://www.datalogics.com");
-	        URIAction uri = new URIAction("/products/pdf/pdflibrary/", false);
-	        System.out.println("Action data: " + uri.toString());
-	        
-	        newLink.setAction(uri);
-	        
-	        // Create a second link with a GoTo action
-	        LinkAnnotation secondLink = new LinkAnnotation(docpage, new Rect(5.0, 6.0, 7.0, 8.0));
-	        
-	        Rect r = new Rect(5, 5, 100, 100);
-	        GoToAction gta = new GoToAction(new ViewDestination(doc, 0, "FitR", r, 1.0));
-	        System.out.println("Action data: " + gta.toString());
-	        
-	        secondLink.setAction(gta);
-	        
-	        // Read some URI properties
-	        System.out.println("Extracted URI: " + uri.getURI());
-	        
-	        if (uri.getIsMap())
-	        	System.out.println("Send mouse coordinates");
-	        else
-	        	System.out.println("Don't send mouse coordinates");
-	        
-	        // Change the URI properties
-	        doc.setBaseURI("http://www.datalogics.com");
-	        uri.setURI("/products/pdf/pdflibrary/");
-	        
-	        uri.setIsMap(true);
-	        
-	        System.out.println("Complete changed URI:" + doc.getBaseURI() + uri.getURI());
+        try {
+            Document doc = new Document();
 
-	        if (uri.getIsMap())
-	        	System.out.println("Send mouse coordinates");
-	        else
-	        	System.out.println("Don't send mouse coordinates");
-	        
-	        // Read some GoTo properties
-	        System.out.println("Fit type of destination: " + gta.getDestination().getFitType().toString());
-	        System.out.println("Rectangle of destination: " + gta.getDestination().getDestRect().toString());
-	        System.out.println("Zoom of destination: " + gta.getDestination().getZoom());
-	        System.out.println("Page number of destination: " + gta.getDestination().getPageNumber());
+            Rect pageRect = new Rect(0, 0, 100, 100);
+            Page docpage = doc.createPage(Document.BEFORE_FIRST_PAGE, pageRect);
+            System.out.println("Created page.");
 
-                System.out.println("Saving to file: " + outFile);
-                doc.save(EnumSet.of(SaveFlags.FULL), outFile);
-            
-		}
-		finally {
-			lib.delete();
-		}
-	}
+            // Create our first link with a URI action
+            LinkAnnotation newLink = new LinkAnnotation(docpage, new Rect(1.0, 2.0, 3.0, 4.0));
+            System.out.println(newLink.toString());
 
+            doc.setBaseURI("http://www.datalogics.com");
+            URIAction uri = new URIAction("/adobe-pdf-library/", false);
+            System.out.println("Action data: " + uri.toString());
+
+            newLink.setAction(uri);
+
+            // Create a second link with a GoTo action
+            LinkAnnotation secondLink = new LinkAnnotation(docpage, new Rect(5.0, 6.0, 7.0, 8.0));
+
+            Rect r = new Rect(5, 5, 100, 100);
+            GoToAction gta = new GoToAction(new ViewDestination(doc, 0, "FitR", r, 1.0));
+            System.out.println("Action data: " + gta.toString());
+
+            secondLink.setAction(gta);
+
+            // Read some URI properties
+            System.out.println("Extracted URI: " + uri.getURI());
+
+            if (uri.getIsMap())
+                System.out.println("Send mouse coordinates");
+            else
+                System.out.println("Don't send mouse coordinates");
+
+            // Change the URI properties
+            doc.setBaseURI("http://www.datalogics.com");
+            uri.setURI("/products/pdf/pdflibrary/");
+
+            uri.setIsMap(true);
+
+            System.out.println("Complete changed URI:" + doc.getBaseURI() + uri.getURI());
+
+            if (uri.getIsMap())
+                System.out.println("Send mouse coordinates");
+            else
+                System.out.println("Don't send mouse coordinates");
+
+            // Read some GoTo properties
+            System.out.println("Fit type of destination: " + gta.getDestination().getFitType().toString());
+            System.out.println("Rectangle of destination: " + gta.getDestination().getDestRect().toString());
+            System.out.println("Zoom of destination: " + gta.getDestination().getZoom());
+            System.out.println("Page number of destination: " + gta.getDestination().getPageNumber());
+
+            System.out.println("Saving to file: " + outFile);
+            doc.save(EnumSet.of(SaveFlags.FULL), outFile);
+        }
+        finally {
+            lib.delete();
+        }
+    }
 }
