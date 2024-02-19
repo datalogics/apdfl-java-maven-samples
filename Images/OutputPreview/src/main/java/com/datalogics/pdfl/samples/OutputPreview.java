@@ -1,4 +1,4 @@
-package com.datalogics.pdfl.samples.Images.OutputPreview;
+package com.datalogics.pdfl.samples;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +42,11 @@ public class OutputPreview {
         String sInput = Library.getResourceDirectory() + "Sample_Input/spotcolors1.pdf";
 
         // Here you specify the Colorant names of interest
-        List<String> colorantsToUse = new ArrayList<String>();
+        ArrayList<String> colorantsToUse = new ArrayList<String>();
         colorantsToUse.add("Yellow");
         colorantsToUse.add("Black");
 
-        List<String> colorantsToUse2 = new ArrayList<String>();
+        ArrayList<String> colorantsToUse2 = new ArrayList<String>();
         colorantsToUse2.add("PANTONE 554 CVC");
         colorantsToUse2.add("PANTONE 814 2X CVC");
         colorantsToUse2.add("PANTONE 185 2X CVC");
