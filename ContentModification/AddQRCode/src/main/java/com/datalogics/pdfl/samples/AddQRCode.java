@@ -1,4 +1,4 @@
-package com.datalogics.pdfl.samples.ContentModification.AddQRCode;
+package com.datalogics.pdfl.samples;
 
 
 import java.util.ArrayList;
