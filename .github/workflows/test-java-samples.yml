@@ -1,0 +1,112 @@
+name: test-samples
+
+on:
+    pull_request:
+    push:
+        branches: [ develop, main ]
+
+env:
+    JAVA_VERSION: '11'
+
+jobs:
+    run-samples:
+        runs-on: ${{ matrix.os }}
+        defaults:
+          run:
+            shell: bash
+        strategy:
+          fail-fast: false
+          matrix:
+            os: [windows-latest, ubuntu-latest, macos-14]
+            dir: [
+              'Annotations/Annotations/',
+              'Annotations/InkAnnotations/',
+              'Annotations/LinkAnnotations/',
+              'Annotations/PolygonAnnotations/',
+              'Annotations/PolyLineAnnotations/',
+              'ContentCreation/AddElements/',
+              'ContentCreation/AddHeaderFooter/',
+              'ContentCreation/Clips/',
+              'ContentCreation/CreateBookmarks/',
+              'ContentCreation/GradientShade/',
+              'ContentCreation/MakeDocWithCalGrayColorSpace/',
+              'ContentCreation/MakeDocWithCalRGBColorSpace/',
+              'ContentCreation/MakeDocWithDeviceNColorSpace/',
+              'ContentCreation/MakeDocWithICCBasedColorSpace/',
+              'ContentCreation/MakeDocWithIndexedColorSpace/',
+              'ContentCreation/MakeDocWithLabColorSpace/',
+              'ContentCreation/MakeDocWithSeparationColorSpace/',
+              'ContentCreation/NameTrees/',
+              'ContentCreation/NumberTrees/',
+              'ContentCreation/RemoteGoToActions/',
+              'ContentCreation/WriteNChannelTiff/',
+              'ContentModification/Actions/',
+              'ContentModification/AddCollection/',
+              'ContentModification/AddQRCode/',
+              'ContentModification/ChangeLayerConfiguration/',
+              'ContentModification/ChangeLinkColors/',
+              'ContentModification/CreateLayer/',
+              'ContentModification/ExtendedGraphicStates/',
+              'ContentModification/FlattenTransparency/',
+              'ContentModification/LaunchActions/',
+              'ContentModification/MergePDF/',
+              'ContentModification/PageLabels/',
+              'ContentModification/PDFObject/',
+              'ContentModification/UnderlinesAndHighlights/',
+              'ContentModification/Watermark/',
+              'Display/DisplayPDF/',
+              'Display/ImageDisplay/',
+              'Display/JavaViewer/',
+              'Display/PDFObjectExplorer/',
+              'DocumentConversion/ColorConvertDocument/',
+              'DocumentConversion/ConvertToOffice/',
+              'DocumentConversion/CreateDocFromXPS/',
+              'DocumentConversion/Factur-XConverter/',
+              'DocumentConversion/PDFAConverter/',
+              'DocumentConversion/PDFXConverter/',
+              'DocumentConversion/ZUGFeRDConverter/',
+              'DocumentOptimization/PDFOptimize/',
+              'Images/DocToImages/',
+              'Images/DrawSeparations/',
+              'Images/EPSSeparations/',
+              'Images/GetSeparatedImages/',
+              'Images/ImageDisplayByteArray/',
+              'Images/ImageEmbedICCProfile/',
+              'Images/ImageExport/',
+              'Images/ImageExtraction/',
+              'Images/ImageFromBufferedImage/',
+              'Images/ImageFromByteArray/',
+              'Images/ImageImport/',
+              'Images/ImageResampling/',
+              'Images/OutputPreview/',
+              'Images/RasterizePage/',
+              'InformationExtraction/ListBookmarks/',
+              'InformationExtraction/ListFonts/',
+              'InformationExtraction/ListInfo/',
+              'InformationExtraction/ListLayers/',
+              'InformationExtraction/ListPaths/',
+              'InformationExtraction/Metadata/',
+              'OpticalCharacterRecognition/AddTextToDocument/',
+              'OpticalCharacterRecognition/AddTextToImage/',
+              'Other/MemoryFileSystem/',
+              'Other/StreamIO/',
+              'Printing/PrintPDF/',
+              'Printing/PrintPDFGUI/',
+              'Security/AddRegexRedaction/',
+              'Security/Redactions/',
+              'Text/AddGlyphs/',
+              'Text/AddUnicodeText/',
+              'Text/AddVerticalText/',
+              'Text/ListWords/',
+              'Text/RegexExtractText/',
+              'Text/RegexTextSearch/',
+              'Text/TextExtract/'
+            ]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Setup Java
+              uses: actions/setup-java@v4
+              with:
+                java-version: ${{ env.JAVA_VERSION }}
+                distribution: 'adopt'
