@@ -61,7 +61,7 @@ jobs:
               'DocumentConversion/ColorConvertDocument/',
               'DocumentConversion/ConvertToOffice/',
               'DocumentConversion/CreateDocFromXPS/',
-              'DocumentConversion/Factur-XConverter/',
+              'DocumentConversion/FacturXConverter/',
               'DocumentConversion/PDFAConverter/',
               'DocumentConversion/PDFXConverter/',
               'DocumentConversion/ZUGFeRDConverter/',
