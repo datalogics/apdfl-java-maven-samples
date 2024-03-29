@@ -110,3 +110,12 @@ jobs:
               with:
                 java-version: ${{ env.JAVA_VERSION }}
                 distribution: 'adopt'
+            - name: Clean target folder
+              working-directory: ${{ matrix.dir }}
+              run: mvn -e clean
+            - name: Unpack APDFL from Maven Central
+              working-directory: ${{ matrix.dir }}
+              run: mvn -e process-resources
+            - name: Compile and assemble sample JAR files with dependencies
+              working-directory: ${{ matrix.dir }}
+              run: mvn -e package
