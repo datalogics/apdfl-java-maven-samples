@@ -105,14 +105,29 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+
             - name: Setup Java
               uses: actions/setup-java@v4
               with:
                 java-version: ${{ env.JAVA_VERSION }}
                 distribution: 'adopt'
+
             - name: Unpack APDFL from Maven Central
               working-directory: ${{ matrix.dir }}
-              run: mvn -e process-resources
+              run: |
+                sample_name=$(basename "$PWD")
+                if { [ "$sample_name" != "ConvertToOffice" ] && [ "$sample_name" != "CreateDocFromXPS" ]; } || [ "${{ matrix.os }}" != 'macos-14' ]; then
+                  mvn -e process-resources
+                else
+                  echo "Not available on this os"
+                fi
+
             - name: Compile and assemble sample JAR files with dependencies
               working-directory: ${{ matrix.dir }}
-              run: mvn -e package
+              run: |
+                sample_name=$(basename "$PWD")
+                if { [ "$sample_name" != "ConvertToOffice" ] && [ "$sample_name" != "CreateDocFromXPS" ]; } || [ "${{ matrix.os }}" != 'macos-14' ]; then
+                  mvn -e package
+                else
+                  echo "Not available on this os"
+                fi

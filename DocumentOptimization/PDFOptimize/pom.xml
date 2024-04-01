@@ -165,7 +165,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>com.datalogics.pdfl.samples.PDFOptimize/mainClass>
+              <mainClass>com.datalogics.pdfl.samples.PDFOptimize</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
