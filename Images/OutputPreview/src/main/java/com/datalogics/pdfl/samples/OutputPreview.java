@@ -16,7 +16,7 @@ import com.datalogics.PDFL.SeparationColorSpace;
  * This sample demonstrates creating an Output Preview Image which is used during Soft Proofing prior to printing to visualize combining different Colorants.
  *
  * 
- * Copyright (c)2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c)2023-2024, Datalogics, Inc. All rights reserved.
  *
  */
 
@@ -83,6 +83,7 @@ public class OutputPreview {
             }
 
             PageImageParams pip = new PageImageParams();
+            pip.setPageDrawFlags(EnumSet.of(DrawFlags.USE_ANNOT_FACES));
             pip.setHorizontalResolution(300.0);
             pip.setVerticalResolution(300.0);
 
