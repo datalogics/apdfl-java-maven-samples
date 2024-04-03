@@ -131,3 +131,23 @@ jobs:
                 else
                   echo "Not available on this os"
                 fi
+
+            - name: Set up Windows system PATH
+              working-directory: ${{ matrix.dir }}
+              run: |
+                  if [ "$RUNNER_OS" == "Windows" ]; then
+                      echo "${{ github.workspace }}\${{ matrix.dir }}\target\lib" >> $GITHUB_PATH
+                  fi
+
+            - name: Print PATH
+              run: echo $PATH
+
+            - name: Run samples
+              working-directory: ${{ matrix.dir }}
+              run: |
+                  sample_name=$(basename "$PWD")
+                  if [ "$RUNNER_OS" == "Windows" ]; then
+                      java -Djava.library.path="$PATH" -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
+                  elif [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macos-14" ]; then
+                      java -Djava.library.path=./target/lib -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
+                  fi
