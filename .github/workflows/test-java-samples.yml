@@ -2,8 +2,14 @@ name: test-samples
 
 on:
     pull_request:
+      branches:
+        - develop
+        - main
     push:
-        branches: [ develop, main ]
+      branches:
+        - develop
+        - main
+
 
 env:
     JAVA_VERSION: '11'
