@@ -152,8 +152,12 @@ jobs:
               working-directory: ${{ matrix.dir }}
               run: |
                   sample_name=$(basename "$PWD")
-                  if [ "$RUNNER_OS" == "Windows" ]; then
-                      java -Djava.library.path="$PATH" -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
-                  elif [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macos-14" ]; then
-                      java -Djava.library.path=./target/lib -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
+                  if [ "$sample_name" == "DisplayPDF" ] || [ "$sample_name" == "ImageDisplay" ] || [ "$sample_name" == "JavaViewer" ] || [ "$sample_name" == "PDFObjectExplorer" ] || [ "$sample_name" == "PrintPDF" ] || [ "$sample_name" == "PrintPDFGUI" ]; then
+                    echo "$sample_name will not be run due to GitHub runner limitations."
+                  else
+                    if [ "$RUNNER_OS" == "Windows" ]; then
+                        java -Djava.library.path="$PATH" -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
+                    elif [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macos-14" ]; then
+                        java -Djava.library.path=./target/lib -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
+                    fi
                   fi
