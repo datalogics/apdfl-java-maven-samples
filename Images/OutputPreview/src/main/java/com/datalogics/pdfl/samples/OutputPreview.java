@@ -1,6 +1,7 @@
 package com.datalogics.pdfl.samples;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 import com.datalogics.PDFL.Document;
