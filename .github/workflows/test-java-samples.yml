@@ -152,7 +152,7 @@ jobs:
               working-directory: ${{ matrix.dir }}
               run: |
                   sample_name=$(basename "$PWD")
-                  if [ "$sample_name" == "DisplayPDF" ] || [ "$sample_name" == "ImageDisplay" ] || [ "$sample_name" == "JavaViewer" ] || [ "$sample_name" == "PDFObjectExplorer" ] || [ "$sample_name" == "PrintPDF" ] || [ "$sample_name" == "PrintPDFGUI" ]; then
+                  if [ "$sample_name" == "DisplayPDF" ] || [ "$sample_name" == "ImageDisplay" ] || [ "$sample_name" == "JavaViewer" ] || [ "$sample_name" == "PDFObjectExplorer" ] || [ "$sample_name" == "PrintPDF" ] || [ "$sample_name" == "PrintPDFGUI" ] || [ "$sample_name" == "ImageDisplayByteArray" ]; then
                     echo "$sample_name will not be run due to GitHub runner limitations."
                   else
                     if [ "$RUNNER_OS" == "Windows" ]; then
