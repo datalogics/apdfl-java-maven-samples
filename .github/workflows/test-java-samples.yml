@@ -118,6 +118,18 @@ jobs:
                 java-version: ${{ env.JAVA_VERSION }}
                 distribution: 'adopt'
 
+            - name: Setup Microsoft Core Fonts
+              working-directory: ${{ matrix.dir }}
+              run: |
+                sample_name=$(basename "$PWD")
+                if [ "${{ matrix.os }}" == 'ubuntu-latest' ]; then
+                  case "$sample_name" in "AddHeaderFooter" | "AddElements")
+                    echo 'ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true' | sudo debconf-set-selections
+                    sudo apt-get install ttf-mscorefonts-installer
+                    ;;
+                  esac
+                fi
+
             - name: Unpack APDFL from Maven Central
               working-directory: ${{ matrix.dir }}
               run: |
@@ -141,9 +153,9 @@ jobs:
             - name: Set up Windows system PATH
               working-directory: ${{ matrix.dir }}
               run: |
-                  if [ "$RUNNER_OS" == "Windows" ]; then
-                      echo "${{ github.workspace }}\${{ matrix.dir }}\target\lib" >> $GITHUB_PATH
-                  fi
+                if [ "$RUNNER_OS" == "Windows" ]; then
+                  echo "${{ github.workspace }}\${{ matrix.dir }}\target\lib" >> $GITHUB_PATH
+                fi
 
             - name: Print PATH
               run: echo $PATH
@@ -151,13 +163,13 @@ jobs:
             - name: Run samples
               working-directory: ${{ matrix.dir }}
               run: |
-                  sample_name=$(basename "$PWD")
-                  if [ "$sample_name" == "DisplayPDF" ] || [ "$sample_name" == "ImageDisplay" ] || [ "$sample_name" == "JavaViewer" ] || [ "$sample_name" == "PDFObjectExplorer" ] || [ "$sample_name" == "PrintPDF" ] || [ "$sample_name" == "PrintPDFGUI" ] || [ "$sample_name" == "ImageDisplayByteArray" ]; then
-                    echo "$sample_name will not be run due to GitHub runner limitations."
-                  else
-                    if [ "$RUNNER_OS" == "Windows" ]; then
-                        java -Djava.library.path="$PATH" -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
-                    elif [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macos-14" ]; then
-                        java -Djava.library.path=./target/lib -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
-                    fi
+                sample_name=$(basename "$PWD")
+                if [ "$sample_name" == "DisplayPDF" ] || [ "$sample_name" == "ImageDisplay" ] || [ "$sample_name" == "JavaViewer" ] || [ "$sample_name" == "PDFObjectExplorer" ] || [ "$sample_name" == "PrintPDF" ] || [ "$sample_name" == "PrintPDFGUI" ] || [ "$sample_name" == "ImageDisplayByteArray" ]; then
+                  echo "$sample_name will not be run due to GitHub runner limitations."
+                else
+                  if [ "$RUNNER_OS" == "Windows" ]; then
+                    java -Djava.library.path="$PATH" -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
+                  elif [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macos-14" ]; then
+                    java -Djava.library.path=./target/lib -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
                   fi
+                fi
