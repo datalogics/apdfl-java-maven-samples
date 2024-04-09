@@ -140,6 +140,15 @@ jobs:
                   echo "Not available on this os"
                 fi
 
+            - name: Unpack APDFL resources ZIP file
+              working-directory: ${{ matrix.dir }}
+              run: |
+                sample_name=$(basename "$PWD")
+                if [ "$sample_name" == "DocToImages" ] && [ "$RUNNER_OS" != "macos-14" ] ; then
+                  unzip $HOME/.m2/repository/com/datalogics/pdfl/pdfl/**/*-resources.zip
+                  ls -la
+                fi
+
             - name: Compile and assemble sample JAR files with dependencies
               working-directory: ${{ matrix.dir }}
               run: |
