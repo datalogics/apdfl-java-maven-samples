@@ -5,6 +5,7 @@ import java.util.EnumSet;
 import java.util.List;
 
 import com.datalogics.PDFL.Document;
+import com.datalogics.PDFL.DrawFlags;
 import com.datalogics.PDFL.Image;
 import com.datalogics.PDFL.ImageType;
 import com.datalogics.PDFL.Ink;
