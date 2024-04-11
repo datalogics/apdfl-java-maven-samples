@@ -190,3 +190,32 @@ jobs:
                     fi
                   fi
                 fi
+
+            - name: Set sample_name variable
+              id: set-sample-name
+              working-directory: ${{matrix.dir}}
+              run: echo "SAMPLE_NAME=$(basename "$PWD")" >> "$GITHUB_ENV"
+
+            - name: Save artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: output-${{ runner.os }}-${{ env.SAMPLE_NAME }}
+                path: |
+                  ${{matrix.dir}}*.docx
+                  ${{matrix.dir}}*.xslx
+                  ${{matrix.dir}}*.pptx
+                  ${{matrix.dir}}*.pdf
+                  ${{matrix.dir}}*.tif
+                  ${{matrix.dir}}*.png
+                  ${{matrix.dir}}*.jpg
+                  ${{matrix.dir}}*.eps
+                  ${{matrix.dir}}*.tiff
+                  ${{matrix.dir}}*.bmp
+                  ${{matrix.dir}}*.gif
+                  ${{matrix.dir}}*.json
+                  ${{matrix.dir}}*.txt
+                  ${{matrix.dir}}*.csv
+
+            - name: List files
+              run: |
+                ls ${{matrix.dir}}
