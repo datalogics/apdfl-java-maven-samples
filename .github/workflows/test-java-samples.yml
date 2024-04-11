@@ -175,7 +175,7 @@ jobs:
                 sample_name=$(basename "$PWD")
                 if [ "$sample_name" == "DisplayPDF" ] || [ "$sample_name" == "ImageDisplay" ] || [ "$sample_name" == "JavaViewer" ] || [ "$sample_name" == "PDFObjectExplorer" ] || [ "$sample_name" == "PrintPDF" ] || [ "$sample_name" == "PrintPDFGUI" ] || [ "$sample_name" == "ImageDisplayByteArray" ]; then
                   echo "$sample_name will not be run due to GitHub runner limitations."
-                else
+                elif { [ "$sample_name" != "ConvertToOffice" ] && [ "$sample_name" != "CreateDocFromXPS" ]; } || [ "${{matrix.os}}" != 'macos-14' ]; then
                   if [ "$RUNNER_OS" == "Windows" ]; then
                     if [ "$sample_name" == "DocToImages" ]; then
                       java -Djava.library.path="$PATH" -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar -format=png Sample_Input/ducky.pdf
@@ -189,6 +189,8 @@ jobs:
                       java -Djava.library.path=./target/lib -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
                     fi
                   fi
+                else
+                    echo "Not available on this os"
                 fi
 
             - name: Set sample_name variable
