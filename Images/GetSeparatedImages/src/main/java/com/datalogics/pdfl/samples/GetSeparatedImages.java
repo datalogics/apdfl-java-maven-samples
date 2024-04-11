@@ -1,9 +1,11 @@
 package com.datalogics.pdfl.samples;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 import com.datalogics.PDFL.Document;
+import com.datalogics.PDFL.DrawFlags;
 import com.datalogics.PDFL.ImageCollection;
 import com.datalogics.PDFL.ImageType;
 import com.datalogics.PDFL.Ink;
@@ -15,7 +17,7 @@ import com.datalogics.PDFL.SeparationColorSpace;
 /*
  * This sample demonstrates drawing a list of grayscale separations from a PDF file to multi-paged TIFF file.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2024, Datalogics, Inc. All rights reserved.
  *
  */
 public class GetSeparatedImages {
@@ -49,6 +51,7 @@ public class GetSeparatedImages {
             }
 
             PageImageParams pip = new PageImageParams();
+            pip.setPageDrawFlags(EnumSet.of(DrawFlags.USE_ANNOT_FACES));
             pip.setHorizontalResolution(300.0);
             pip.setVerticalResolution(300.0);
 
