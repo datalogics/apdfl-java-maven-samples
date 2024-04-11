@@ -144,7 +144,7 @@ jobs:
               working-directory: ${{ matrix.dir }}
               run: |
                 sample_name=$(basename "$PWD")
-                if [ "$sample_name" == "DocToImages" ] && [ "$RUNNER_OS" != "macos-14" ] ; then
+                if [ "$sample_name" == "DocToImages" ] && [ "$RUNNER_OS" != "macOS" ] ; then
                   unzip $HOME/.m2/repository/com/datalogics/pdfl/pdfl/**/*-resources.zip
                   ls -la
                 fi
@@ -182,7 +182,7 @@ jobs:
                     else
                       java -Djava.library.path="$PATH" -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar
                     fi
-                  elif [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macos-14" ]; then
+                  elif [ "$RUNNER_OS" == "Linux" ] || [ "$RUNNER_OS" == "macOS" ]; then
                     if [ "$sample_name" == "DocToImages" ]; then
                       java -Djava.library.path=./target/lib -Dfile.encoding=UTF-8 -jar target/$sample_name-1.0-SNAPSHOT-jar-with-dependencies.jar -format=png Sample_Input/ducky.pdf
                     else
