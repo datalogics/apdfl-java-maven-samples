@@ -19,7 +19,7 @@ import com.datalogics.PDFL.Page;
  * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
  *
  */
-public class PDFObjectSample {
+public class PDFObject {
 
 	/**
 	 * @param args
