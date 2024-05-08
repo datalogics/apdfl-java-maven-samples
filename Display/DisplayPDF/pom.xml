@@ -51,32 +51,32 @@
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.34.0</version>
+      <version>18.35.0</version>
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.34.0</version>
+      <version>18.35.0</version>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.34.0</version>
+      <version>18.35.0</version>
       <type>zip</type>
       <classifier>${jni.classifier}</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.34.0</version>
+      <version>18.35.0</version>
       <type>zip</type>
       <classifier>resources</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.34.0</version>
+      <version>18.35.0</version>
       <classifier>javadoc</classifier>
     </dependency>
   </dependencies>
@@ -150,6 +150,28 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.datalogics.pdfl.samples.DisplayPDF</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
       </plugin>
     </plugins>
   </build>
