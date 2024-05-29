@@ -285,7 +285,6 @@ public class PageCache implements PageModel {
             params.setFlags(EnumSet.of(DrawFlags.DO_LAZY_ERASE, DrawFlags.USE_ANNOT_FACES));
             params.setSmoothFlags(EnumSet.of(SmoothFlags.IMAGE, SmoothFlags.LINE_ART, SmoothFlags.TEXT));
             params.setEnableBlackPointCompensation(true);
-            params.setBypassCopyPerm(true);
             // Draw. We get a byte array that has the samples in left-right top-bottom order. may throw OutOfMemoryError
             byte[] values = null;
             try {
