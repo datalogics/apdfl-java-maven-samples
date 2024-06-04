@@ -11,6 +11,20 @@ Live support from PDF development experts.
 
 Licensing and Pricing options are customized to your usage and requirements. For OEM and SaaS customers we will provide you with a non-license managed software package for easier distribution embedded within your applications.
 
+## Free trial & license activation
+
+To activate the free trial:
+1. Visit https://www.datalogics.com/pdf-sdk-free-trial to obtain an activation key.
+2. A prompt will appear on your console when executing Datalogics sample code.
+
+Alternatively, to use an activation key in code, the <em>setLicenseKey()</em> method of the <em>Library</em> class can be set to
+a valid activation key <b>prior</b> to instantiating the library.
+```
+    Library.setLicenseKey("xxxx-xxxx-xxxx-xxxx");
+    Library lib = new Library();
+```
+
+
 ## Extensive PDF Capabilities
 - ![NewFeature](https://img.shields.io/badge/New!-blue?style=plastic) ![Windows](https://img.shields.io/badge/Only-blue?style=plastic&logo=windows&labelColor=blue) Conversion of PDF to Microsoft Office Word, Excel, and PowerPoint (.docx, .xlsx, .pptx) documents.
 - Create and edit annotations

@@ -39,32 +39,32 @@
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.35.0</version>
+      <version>18.36.0</version>
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.35.0</version>
+      <version>18.36.0</version>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.35.0</version>
+      <version>18.36.0</version>
       <type>zip</type>
       <classifier>${jni.classifier}</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.35.0</version>
+      <version>18.36.0</version>
       <type>zip</type>
       <classifier>resources</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.35.0</version>
+      <version>18.36.0</version>
       <classifier>javadoc</classifier>
     </dependency>
   </dependencies>
@@ -113,24 +113,6 @@
                   <groupId>com.datalogics.pdfl</groupId>
                   <artifactId>pdfl</artifactId>
                   <classifier>${jni.classifier}</classifier>
-                  <type>zip</type>
-                  <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-          <execution>
-            <id>unpack-license</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.datalogics.pdfl</groupId>
-                  <artifactId>pdfl</artifactId>
-                  <classifier>license</classifier>
                   <type>zip</type>
                   <outputDirectory>${project.build.directory}/lib</outputDirectory>
                 </artifactItem>
