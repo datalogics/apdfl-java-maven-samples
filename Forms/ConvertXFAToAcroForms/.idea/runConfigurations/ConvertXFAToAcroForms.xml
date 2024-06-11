@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="AddElements" type="Application" factoryName="Application">
+  <configuration default="false" name="ConvertXFAToAcroForms" type="Application" factoryName="Application">
     <envs>
       <env name="PATH" value="./target/lib" />
     </envs>
