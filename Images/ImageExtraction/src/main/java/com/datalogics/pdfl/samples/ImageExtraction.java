@@ -8,14 +8,9 @@ package com.datalogics.pdfl.samples;
  * same directory. Vector images, such as clip art, will not be exported.
  * 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2024, Datalogics, Inc. All rights reserved.
  *
  */
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import javax.imageio.ImageIO;
-import java.io.File;
 
 import com.datalogics.PDFL.*;
 
@@ -28,10 +23,8 @@ public class ImageExtraction {
             Element e = content.getElement(i);
             if (e instanceof Image) {
                 Image img = (Image)e;
-                ImageIO.write(img.getBufferedImage(), "bmp", new File("ImageExtraction-extract-out" + (next++) + ".bmp"));
-                // the bitmap may be saved in any format supported by ImageIO, e.g.:
-                //ImageIO.write(img, "jpg", new File("extract" + i + ".jpg"));
-                //ImageIO.write(img, "png", new File("extract" + i + ".png"));
+
+                img.save("ImageExtraction-extract-out" + (next++) + ".png",  com.datalogics.PDFL.ImageType.PNG);
             } else if (e instanceof Container) {
                 extractImages(((Container)e).getContent());
             } else if (e instanceof Group) {
