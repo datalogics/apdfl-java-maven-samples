@@ -9,7 +9,7 @@ package com.datalogics.pdfl.samples;
  * 
  * This sample program shows how to use the Extended Graphic State object to add graphics parameters to an image.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2024, Datalogics, Inc. All rights reserved.
  *
  */
 import com.datalogics.PDFL.BlendMode;
@@ -61,6 +61,9 @@ public class ExtendedGraphicStates {
             pgContent = docpage.getContent();
             f = new Font("CourierStd", EnumSet.of(FontCreateFlags.EMBEDDED, FontCreateFlags.SUBSET));
 
+            double spaceFactor = 18.0;
+            double heightOffset = height - 88.0;
+
             for (int i = 0; i < 16; i++) {
                 try {
                     individualForegroundImage = foregroundImage.clone();
@@ -68,23 +71,31 @@ public class ExtendedGraphicStates {
 
                     gs = individualForegroundImage.getGraphicState();
                     individualForegroundImage.scale(0.125, 0.125);
-                    individualForegroundImage.translate(800, 200 + height * (7 - i));
                     individualBackgroundImage.scale(0.125, 0.125);
-                    individualBackgroundImage.translate(800, 200 + height * (7 - i));
 
-                    // Halfway through, create 2nd column by shifting over and
-                    // up
-                    if (i > 7) {
-                        individualForegroundImage.translate(2400, height * 8);
-                        individualBackgroundImage.translate(2400, height * 8);
+                    spaceFactor = 18.0;
+                    if (i == 0)
+                    {
+                        spaceFactor = 0;
                     }
+                    //Halfway through, create 2nd column by shifting over and up
+                    if (i > 7)
+                    {
+                        individualForegroundImage.translate(400, heightOffset - (72.0 + spaceFactor) * (i - 8));
+                        individualBackgroundImage.translate(400, heightOffset - (72.0 + spaceFactor) * (i - 8));
+                    }
+                    else
+                    {
+                        individualForegroundImage.translate(100, heightOffset - (72.0 + spaceFactor) * i);
+                        individualBackgroundImage.translate(100, heightOffset - (72.0 + spaceFactor) * i);
+                    }
+
 
                     m = new Matrix();
                     if (i > 7) {
-                        m = m.translate(480, 750 - ((i - 8) * 100)); // second
-                                                                     // column
+                        m = m.translate(480, heightOffset - (72.0 + spaceFactor) * (i - 8));// second column
                     } else {
-                        m = m.translate(180, 750 - (i * 100)); // first column
+                        m = m.translate(180, heightOffset - (72.0 + spaceFactor) * i); // first column
                     }
                     m = m.scale(12.0, 12.0);
 
