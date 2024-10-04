@@ -322,7 +322,7 @@ public class AnnotationProperties {
     }
 
     public Form getNormalAppereance() {
-        return getProperty(AnnotationConsts.NORM_APPEARANCE, new Form(new Content()), Form.class);
+        return getProperty(AnnotationConsts.NORM_APPEARANCE, new Form(new Content(), null), Form.class);
     }
 
     public String getFontFace() {
