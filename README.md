@@ -14,7 +14,7 @@ Licensing and Pricing options are customized to your usage and requirements. For
 ## Free trial & license activation
 
 To activate the free trial:
-1. Visit https://www.datalogics.com/pdf-sdk-free-trial to obtain an activation key.
+1. Visit [Free Trial](https://www.datalogics.com/pdf-sdk-free-trial) to obtain an activation key.
 2. A prompt will appear on your console when executing Datalogics sample code.
 
 Alternatively, to use an activation key in code, the <em>setLicenseKey()</em> method of the <em>Library</em> class can be set to
@@ -24,33 +24,15 @@ a valid activation key <b>prior</b> to instantiating the library.
     Library lib = new Library();
 ```
 
-
-## Extensive PDF Capabilities
-- ![NewFeature](https://img.shields.io/badge/New!-blue?style=plastic) ![Windows](https://img.shields.io/badge/Only-blue?style=plastic&logo=windows&labelColor=blue) Conversion of PDF to Microsoft Office Word, Excel, and PowerPoint (.docx, .xlsx, .pptx) documents.
-- Create and edit annotations
-- Content creation and editing
-- Color management and conversion
-- Extraction of text, images, forms
-- Redaction
-- Content modification - merge, split, flatten, layers
-- Compression / optimization / linearization for Fast Web View
-- Display, Render, Print
-- Conversion to PDF/A, PDF/X, EPS, PostScript, XPS, Factur-X, ZUGFeRD, image formats (JPG, TIFF, PNG, BMP), Office formats (docx, xlsx, pptx)
-- Forms - Import, export, flatten, AcroForms
-- Image manipulation and conversion
-- OCR
-- Support for Optional Content Groups and PDF Layers
-- Printing
-- Security - Password, encrypt, watermark
-- Search for and replace or edit text
-
 ## Running the Samples
-**For 64-bit Intel Windows, 64-bit Intel Linux, or Mac ARM systems:**
-- Clone this repository to your system
-- Select a sample you would like to try
-- Open the folder containing the sample in [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-- From the Maven tab in the right sidebar, run the "Compile" phase
-- Run the sample
+**For x64 Windows, x64 Linux, or macOS ARM systems:**
+Samples can be built and run easily in the [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE.
+
+1. Clone this repository
+2. Select a sample you would like to try
+3. Open the folder containing the sample in IDE
+4. From the Maven tab in the right sidebar, run the *Compile* phase
+5. Run the sample by clicking on the **Run** button!
 
 **For other systems:**
 See [Using APDFL and Maven on other platforms](using_on_other_platforms.md)
