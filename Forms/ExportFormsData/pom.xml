@@ -39,56 +39,56 @@
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.41.0</version>
+      <version>18.42.2</version>
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.41.0</version>
+      <version>18.42.2</version>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.41.0</version>
+      <version>18.42.2</version>
       <type>zip</type>
       <classifier>${jni.classifier}</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.41.0</version>
+      <version>18.42.2</version>
       <type>zip</type>
       <classifier>resources</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>pdfl</artifactId>
-      <version>18.41.0</version>
+      <version>18.42.2</version>
       <classifier>javadoc</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>forms-extension</artifactId>
-      <version>18.41.0</version>
+      <version>18.42.2</version>
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>forms-extension</artifactId>
-      <version>18.41.0</version>
+      <version>18.42.2</version>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>forms-extension</artifactId>
-      <version>18.41.0</version>
+      <version>18.42.2</version>
       <type>zip</type>
       <classifier>${jni.classifier}</classifier>
     </dependency>
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>forms-extension</artifactId>
-      <version>18.41.0</version>
+      <version>18.42.2</version>
       <classifier>javadoc</classifier>
     </dependency>
   </dependencies>
