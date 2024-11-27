@@ -97,3 +97,18 @@ After you've installed APDFL for your platform to your Maven cache, you can run 
       </properties>
     </profile>
 ```
+### **Windows ARM (64-bit)**
+```
+    <profile>
+      <id>WindowsArm</id>
+      <activation>
+        <os>
+          <family>windows</family>
+          <arch>aarch64</arch>
+        </os>
+      </activation>
+      <properties>
+        <jni.classifier>win-arm-64-jni</jni.classifier>
+      </properties>
+    </profile>
+```
