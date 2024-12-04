@@ -79,7 +79,6 @@ pipeline {
                             echo "Set-Up Environment ${NODE}"
                             script {
                                 if (isUnix()) {
-                                    sh 'chmod +x mkenv.py'
                                     sh './mkenv.py --verbose'
                                     ENV_LOC[NODE] = sh (
                                         script: './mkenv.py --env-name',
@@ -134,7 +133,7 @@ pipeline {
                     }
                     stage('Run Samples') {
                         steps {
-                            echo "Running samples on ${NODE}"
+                            echo "Show Conan dependencies ${NODE}"
                             script {
                                 if (isUnix()) {
                                     sh """. ${ENV_LOC[NODE]}/bin/activate
@@ -163,6 +162,7 @@ pipeline {
                                 }
                             }
                         }
+                    }
                     }
                 }
             }
