@@ -65,7 +65,7 @@ public class ImportFormsData
             //AcroForms document
             sInput = Library.getResourceDirectory() + "Sample_Input/AcroForm.pdf";
             sInputData = Library.getResourceDirectory() + "Sample_Input/AcroForm_data.xfdf";
-            sOutput = "../ImportFormsDataAcroForms.xfdf";
+            sOutput = "../ImportFormsDataAcroForms.pdf";
 
             if (args.length > 1)
             {
