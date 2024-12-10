@@ -4,6 +4,7 @@ from invoke.tasks import Task
 import platform
 import os
 import pathlib
+import subprocess
 
 samples_list = [  
                 'Annotations/Annotations/',
@@ -115,9 +116,29 @@ def remove_last_path_entry():
     new_path = delimiter.join(path_entries)
     os.environ["PATH"] = new_path
 
+def execute_java_sample(target_dir, sample_name, full_path, apdfl_key):
+    command = str(f'java -Djava.library.path={target_dir} -jar target/{sample_name}-1.0-SNAPSHOT-jar-with-dependencies.jar')
+
+    process = subprocess.Popen(command, shell=True, cwd=full_path, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process.stdin.write(apdfl_key.encode() + b'\n')
+    process.stdin.flush()
+    stdout, stderr = process.communicate()
+
+    if process.returncode == 0:
+        print(f"{sample_name} sample ran successfully.")
+        print(stdout.decode(errors='ignore'))
+    else:
+        print(stderr.decode())
+        raise RuntimeError(f"{sample_name} sample failed to run.")
+
 @task()
 def run_samples(ctx):
     """Runs the APDFL Java Maven samples"""
+    apdfl_key = os.environ.get("APDFL_KEY")
+
+    if apdfl_key is None:
+        raise ValueError("APDFL_KEY environment variable not set.")
+
     for sample in samples_list:
         if platform.system() == "Windows":
             os.environ["PATH"] += ";"
@@ -132,10 +153,9 @@ def run_samples(ctx):
         if 'DocToImages' in sample or 'ImageDisplayByteArray' in sample:
             continue
         else:
-            with ctx.cd(full_path):
-                sample_name = sample.split("/")[1]
-                ctx.run(f'java -Djava.library.path={target_dir} -jar target/{sample_name}-1.0-SNAPSHOT-jar-with-dependencies.jar')
-        
+            sample_name = sample.split("/")[1]
+            execute_java_sample(target_dir, sample_name, full_path, apdfl_key)
+
         if platform.system() == "Windows":
             remove_last_path_entry()
 
