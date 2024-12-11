@@ -79,6 +79,7 @@ pipeline {
                             echo "Set-Up Environment ${NODE}"
                             script {
                                 if (isUnix()) {
+                                    sh 'chmod +x mkenv.py'
                                     sh './mkenv.py --verbose'
                                     ENV_LOC[NODE] = sh (
                                         script: './mkenv.py --env-name',
