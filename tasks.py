@@ -100,7 +100,7 @@ def build_samples(ctx):
     for sample in samples_list:
         full_path = os.path.join(os.getcwd(), sample)
 
-        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample):
+        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or 'CreateDocFromXPS' in sample):
             print(f'{sample} not available on this OS')
             continue
 
@@ -156,7 +156,7 @@ def run_samples(ctx):
 
         if 'DocToImages' in sample or 'ImageDisplayByteArray' in sample:
             continue
-        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample):
+        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or 'CreateDocFromXPS' in sample):
             print(f'{sample} not available on this OS')
             continue
         else:
