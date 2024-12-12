@@ -159,6 +159,8 @@ def run_samples(ctx):
         if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or 'CreateDocFromXPS' in sample):
             print(f'{sample} not available on this OS')
             continue
+        elif platform.system() == 'Linux' and 'ConvertToOffice' in sample:
+            continue
         else:
             sample_name = sample.split("/")[1]
             execute_java_sample(target_dir, sample_name, full_path, apdfl_key)
