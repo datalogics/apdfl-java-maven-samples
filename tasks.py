@@ -175,7 +175,7 @@ def run_samples(ctx):
 
         if 'DocToImages' in sample or 'ImageDisplayByteArray' in sample:
             continue
-        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample):
+        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or 'CreateDocFromXPS' in sample):
             print(f'{sample} not available on this OS')
             continue
         if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or
