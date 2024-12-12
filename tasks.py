@@ -99,7 +99,11 @@ def build_samples(ctx):
     ctx.run('invoke clean-samples')
     for sample in samples_list:
         full_path = os.path.join(os.getcwd(), sample)
-        
+
+        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample):
+            print(f'{sample} not available on this OS')
+            continue
+
         with ctx.cd(full_path):
             ctx.run('mvn package')
 
@@ -151,6 +155,9 @@ def run_samples(ctx):
             os.environ["PATH"] += str(target_dir)
 
         if 'DocToImages' in sample or 'ImageDisplayByteArray' in sample:
+            continue
+        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample):
+            print(f'{sample} not available on this OS')
             continue
         else:
             sample_name = sample.split("/")[1]
