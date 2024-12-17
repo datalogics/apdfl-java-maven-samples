@@ -175,8 +175,17 @@ def run_samples(ctx):
 
         if 'DocToImages' in sample or 'ImageDisplayByteArray' in sample:
             continue
-        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or 'CreateDocFromXPS' in sample or 'ConvertXFAToAcroForms' in sample or 'ExportFormsData' in sample or 'FlattenForms' in sample or 'ImportFormsData' in sample):
-            output = "not available on this OS" if ('ConvertToOffice' in sample or 'CreateDocFromXPS' in sample) else "cannot be run in CI on this OS"
+        if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or
+                                              'CreateDocFromXPS' in sample or
+                                              'ConvertXFAToAcroForms' in sample
+                                              or 'ExportFormsData' in sample or
+                                              'FlattenForms' in sample or
+                                              'ImportFormsData' in sample):
+            output = ""
+            if ('ConvertToOffice' in sample or 'CreateDocFromXPS' in sample):
+                output = "not available on this OS"
+            else:
+                output = "cannot be run in CI on this OS"
             print(f'{sample} {output}')
             continue
         if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or

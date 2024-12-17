@@ -134,7 +134,7 @@ pipeline {
                     }
                     stage('Run Samples') {
                         steps {
-                            echo "Show Conan dependencies ${NODE}"
+                            echo "Running samples on ${NODE}"
                             script {
                                 if (isUnix()) {
                                     sh """. ${ENV_LOC[NODE]}/bin/activate
