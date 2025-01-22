@@ -74,6 +74,7 @@ samples_list = [
                 'InformationExtraction/Metadata/',
                 'OpticalCharacterRecognition/AddTextToDocument/',
                 'OpticalCharacterRecognition/AddTextToImage/',
+                'OpticalCharacterRecognition/OCRDocument/',
                 'Other/MemoryFileSystem/',
                 'Other/StreamIO/',
                 'Security/AddRegexRedaction/',
