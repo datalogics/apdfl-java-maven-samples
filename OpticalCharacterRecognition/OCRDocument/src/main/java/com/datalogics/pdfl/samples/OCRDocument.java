@@ -65,22 +65,21 @@ public class OCRDocument {
 
             OCREngine ocrEngine = new OCREngine(ocrParams);
             // Open a document with a single page.
-            Document doc = new Document();
-            // Create a PDF page around this image. The design width and height
-            // for the image are carried in the Image's Matrix's A and D fields, respectively.
-            Image newImage = new Image(sInput, doc);
-            Matrix imageMatrix = newImage.getMatrix();
-            Rect pageRect = new Rect(0, 0, imageMatrix.getA(), imageMatrix.getD());
-            Page docpage = doc.createPage(Document.BEFORE_FIRST_PAGE, pageRect);
-            Page page = doc.getPage(0);
-            try {
-                page.recognizePageContents(page, ocrEngine);
+            Document doc = new Document(sInput);
+
+            for (int numPage = 0; numPage < doc.getNumPages(); numPage++) {
+                Page page = doc.getPage(numPage);
+                try {
+                    page.recognizePageContents(doc, ocrEngine);
+                }
+                finally {
+                    page.delete();
+                }
             }
-            finally {
-                page.delete();
-                ocrEngine.delete();
-            }
+
             doc.save(EnumSet.of(SaveFlags.FULL), sOutput);
+
+            ocrEngine.delete();
             doc.delete();
         }
          finally {
