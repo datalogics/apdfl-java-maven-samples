@@ -1,6 +1,6 @@
 ![Datalogics Adobe PDF Library](https://raw.github.com/datalogics/dl-icons/develop/DLBanner_Nuget.png)
 
-[Documentation](https://docs.datalogics.com/apdfl18/Java/index.html) &nbsp; | &nbsp; [Support](https://www.datalogics.com/tech-support-pdfs/) &nbsp; | &nbsp; [Release Notes](https://docs.datalogics.com/apdfl18/Release_Notes.html) &nbsp; | &nbsp;[Homepage](https://www.datalogics.com)
+[Documentation](https://dev.datalogics.com/adobe-pdf-library/c-plus-plus/getting-started) &nbsp; | &nbsp; [API Reference](https://docs.datalogics.com/apdfl18/Java/index.html) &nbsp; | &nbsp; [Support](https://www.datalogics.com/tech-support-pdfs/) &nbsp; | &nbsp; [Release Notes](https://docs.datalogics.com/apdfl18/Release_Notes.html) &nbsp; | &nbsp;[Homepage](https://www.datalogics.com)
 
 [![Download a Free Trial](https://img.shields.io/badge/maven%20package-APDFL%20Free%20Trial-blue?style=plastic&logo=apachemaven)](https://central.sonatype.com/artifact/com.datalogics.pdfl/pdfl)
 
