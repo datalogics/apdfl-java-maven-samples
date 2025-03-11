@@ -1,13 +1,8 @@
 /*
  * 
- * This program demonstrates how to import images into a PDF file. The program runs without
- * prompting you, and creates two PDF files, demonstrating how to import graphics from image files
- * into a PDF file. One of the PDF output files is the result of graphics imported from a multi-page TIF file.
+ * This sample demonstrates how to import an image into a PDF file.
  * 
- * The sample has two optional arguments, one a JPG image file, and the other the name of the default PDF output file.
- * The program imports the JPG file into a PDF and saves it to an output PDF file.
- * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2025, Datalogics, Inc. All rights reserved.
  *
  */
 
