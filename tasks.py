@@ -138,9 +138,13 @@ def remove_last_path_entry():
 
 
 def execute_java_sample(target_dir, sample_name, full_path, apdfl_key):
-    command = str(f'java -Djava.library.path={target_dir} -jar target/{sample_name}-1.0-SNAPSHOT-jar-with-dependencies.jar')
-
-    process = subprocess.Popen(command, shell=True, cwd=full_path,
+    command = [
+        'java',
+        f'-Djava.library.path={target_dir}',
+        '-jar',
+        f'target/{sample_name}-1.0-SNAPSHOT-jar-with-dependencies.jar'
+    ]
+    process = subprocess.Popen(command, shell=False, cwd=full_path,
                                stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)
     process.stdin.write(apdfl_key.encode() + b'\n')
