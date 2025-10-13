@@ -1,0 +1,78 @@
+/*
+ *
+ * This sample program demonstrates the use of AddDigitalSignature for CMS signature type.
+ *
+ * Copyright (c) 2025, Datalogics, Inc. All rights reserved.
+ *
+ */
+
+package com.datalogics.pdfl.samples;
+
+import java.util.EnumSet;
+
+import com.datalogics.PDFL.*;
+
+public class AddDigitalSignatureCMS {
+
+    public static void main(String [] args) throws Exception {
+        System.out.println("AddDigitalSignatureCMS sample:");
+
+        Library lib = new Library(); 
+        try {
+            Document doc = new Document();
+            
+            String sInput = Library.getResourceDirectory() + "Sample_Input/SixPages.jpg";
+            String sLogo = Library.getResourceDirectory() + "Sample_Input/ducky_alpha.tif";
+            String sOutput = "DigSigCMS-out.pdf";
+
+            String sDERCert = Library.getResourceDirectory() + "Sample_Input/Credentials/DER/RSA_certificate.der";
+            String sDERKey = Library.getResourceDirectory() + "Sample_Input/Credentials/DER/RSA_privKey.der";
+
+            if (args.length > 0)
+                sInput = args[0];
+
+            if (args.length > 1)
+                sOutput = args[1];
+
+            if (args.length > 2)
+                sOutput = args[2];
+
+            System.out.println("Applying a CMS digital signature to " + sInput + "with a logo " + sLogo + " and saving it as " + sOutput);
+
+            SignDoc sigDoc = new SignDoc();
+
+            // Setup Sign params
+            sigDoc.setFieldID(SignatureFieldID.CreateFieldWithQualifiedName);
+            sigDoc.setFieldName("Signature_es_:signatureblock");
+
+            // Set credential related attributes
+            sigDoc.setDigestCategory(com.datalogics.PDFL.DigestCategory.Sha256);
+            sigDoc.setCredentialDataFormat(CredentialDataFmt.NonPFX);
+            sigDoc.setNonPfxSignerCert(sDERCert, 0, CredentialStorageFmt.OnDisk);
+            sigDoc.setNonPfxPrivateKey(sDERKey, 0, CredentialStorageFmt.OnDisk);
+
+            // Set the signature type to be used.
+            // The available types are defined in the SignatureType enum. Default CMS.
+            sigDoc.setDocSignType(SignatureType.CMS);
+
+            // Setup the signer information
+            // (Logo image is optional)
+            sigDoc.setSignerInfo(sLogo, 0.5F, "John Doe", "Chicago, IL", "Approval", "Datalogics, Inc.", DisplayTraits.KDisplayAll);
+
+            // Set the size and location of the signature box (optional)
+            // If not set, invisible signature will be placed on first page
+            sigDoc.setSignatureBoxPageNumber(0);
+            sigDoc.setSignatureBoxRectangle(new Rect(100, 300, 400, 400));
+
+            // Setup Save params
+            sigDoc.setOutputPath(sOutput);
+
+            // Finally, sign and save the document
+            sigDoc.AddDigitalSignature(doc);
+        }
+        finally {
+            lib.delete();
+        }
+    }
+}
+
