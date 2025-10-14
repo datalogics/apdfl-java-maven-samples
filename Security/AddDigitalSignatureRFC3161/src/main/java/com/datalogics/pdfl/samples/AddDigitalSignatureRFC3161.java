@@ -8,8 +8,6 @@
 
 package com.datalogics.pdfl.samples;
 
-import java.util.EnumSet;
-
 import com.datalogics.PDFL.*;
 
 public class AddDigitalSignatureRFC3161 {
@@ -36,20 +34,20 @@ public class AddDigitalSignatureRFC3161 {
             SignDoc sigDoc = new SignDoc();
 
             // Setup Sign params
-            sigDoc.setFieldID(SignatureFieldID.SearchForFirstUnsignedField);
+            sigDoc.setFieldID(SignatureFieldID.SEARCH_FOR_FIRST_UNSIGNED_FIELD);
 
             // Set credential related attributes
-            sigDoc.setDigestCategory(com.datalogics.PDFL.DigestCategory.Sha256);
+            sigDoc.setDigestCategory(com.datalogics.PDFL.DigestCategory.SHA_256);
 
             // Set the signature type to be used, RFC3161/TimeStamp.
             // The available types are defined in the SignatureType enum. Default CMS.
-            sigDoc.setDocSignType(SignatureType.RFC3161);
+            sigDoc.setDocSignType(SignatureType.RFC_3161);
 
             // Setup Save params
             sigDoc.setOutputPath(sOutput);
 
             // Finally, sign and save the document
-            sigDoc.AddDigitalSignature(doc);
+            sigDoc.addDigitalSignature(doc);
         }
         finally {
             lib.delete();

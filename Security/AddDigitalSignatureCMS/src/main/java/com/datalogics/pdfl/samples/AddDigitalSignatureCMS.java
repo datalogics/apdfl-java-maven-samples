@@ -8,8 +8,6 @@
 
 package com.datalogics.pdfl.samples;
 
-import java.util.EnumSet;
-
 import com.datalogics.PDFL.*;
 
 public class AddDigitalSignatureCMS {
@@ -42,14 +40,14 @@ public class AddDigitalSignatureCMS {
             SignDoc sigDoc = new SignDoc();
 
             // Setup Sign params
-            sigDoc.setFieldID(SignatureFieldID.CreateFieldWithQualifiedName);
+            sigDoc.setFieldID(SignatureFieldID.CREATE_FIELD_WITH_QUALIFIED_NAME);
             sigDoc.setFieldName("Signature_es_:signatureblock");
 
             // Set credential related attributes
-            sigDoc.setDigestCategory(com.datalogics.PDFL.DigestCategory.Sha256);
-            sigDoc.setCredentialDataFormat(CredentialDataFmt.NonPFX);
-            sigDoc.setNonPfxSignerCert(sDERCert, 0, CredentialStorageFmt.OnDisk);
-            sigDoc.setNonPfxPrivateKey(sDERKey, 0, CredentialStorageFmt.OnDisk);
+            sigDoc.setDigestCategory(DigestCategory.SHA_256);
+            sigDoc.setCredentialDataFormat(CredentialDataFmt.NON_PFX);
+            sigDoc.setNonPfxSignerCert(sDERCert, 0, CredentialStorageFmt.ON_DISK);
+            sigDoc.setNonPfxPrivateKey(sDERKey, 0, CredentialStorageFmt.ON_DISK);
 
             // Set the signature type to be used.
             // The available types are defined in the SignatureType enum. Default CMS.
@@ -57,7 +55,7 @@ public class AddDigitalSignatureCMS {
 
             // Setup the signer information
             // (Logo image is optional)
-            sigDoc.setSignerInfo(sLogo, 0.5F, "John Doe", "Chicago, IL", "Approval", "Datalogics, Inc.", DisplayTraits.KDisplayAll);
+            sigDoc.setSignerInfo(sLogo, 0.5F, "John Doe", "Chicago, IL", "Approval", "Datalogics, Inc.", DisplayTraits.KDISPLAY_ALL);
 
             // Set the size and location of the signature box (optional)
             // If not set, invisible signature will be placed on first page
@@ -68,7 +66,7 @@ public class AddDigitalSignatureCMS {
             sigDoc.setOutputPath(sOutput);
 
             // Finally, sign and save the document
-            sigDoc.AddDigitalSignature(doc);
+            sigDoc.addDigitalSignature(doc);
         }
         finally {
             lib.delete();
