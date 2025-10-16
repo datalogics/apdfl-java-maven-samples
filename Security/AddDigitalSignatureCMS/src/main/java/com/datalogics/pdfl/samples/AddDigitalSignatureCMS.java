@@ -17,9 +17,7 @@ public class AddDigitalSignatureCMS {
 
         Library lib = new Library(); 
         try {
-            Document doc = new Document();
-            
-            String sInput = Library.getResourceDirectory() + "Sample_Input/SixPages.jpg";
+            String sInput = Library.getResourceDirectory() + "Sample_Input/SixPages.pdf";
             String sLogo = Library.getResourceDirectory() + "Sample_Input/ducky_alpha.tif";
             String sOutput = "DigSigCMS-out.pdf";
 
@@ -36,6 +34,8 @@ public class AddDigitalSignatureCMS {
                 sOutput = args[2];
 
             System.out.println("Applying a CMS digital signature to " + sInput + "with a logo " + sLogo + " and saving it as " + sOutput);
+
+            Document doc = new Document(sInput);
 
             SignDoc sigDoc = new SignDoc();
 

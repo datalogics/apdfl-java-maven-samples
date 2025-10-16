@@ -17,9 +17,7 @@ public class AddDigitalSignatureRFC3161 {
 
         Library lib = new Library(); 
         try {
-            Document doc = new Document();
-            
-            String sInput = Library.getResourceDirectory() + "Sample_Input/CreateAcroForm2h.jpg";
+            String sInput = Library.getResourceDirectory() + "Sample_Input/CreateAcroForm2h.pdf";
 
             String sOutput = "DigSigRFC3161-out.pdf";
 
@@ -31,13 +29,15 @@ public class AddDigitalSignatureRFC3161 {
 
             System.out.println("Applying an RFC3161/TimeStamp digital signature to " + sInput + " and saving it as " + sOutput);
 
+            Document doc = new Document(sInput);
+
             SignDoc sigDoc = new SignDoc();
 
             // Setup Sign params
             sigDoc.setFieldID(SignatureFieldID.SEARCH_FOR_FIRST_UNSIGNED_FIELD);
 
             // Set credential related attributes
-            sigDoc.setDigestCategory(com.datalogics.PDFL.DigestCategory.SHA_256);
+            sigDoc.setDigestCategory(DigestCategory.SHA_256);
 
             // Set the signature type to be used, RFC3161/TimeStamp.
             // The available types are defined in the SignatureType enum. Default CMS.
