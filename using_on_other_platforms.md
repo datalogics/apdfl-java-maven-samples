@@ -28,8 +28,8 @@ After you've installed APDFL for your platform to your Maven cache, you can run 
           <arch>x86_64</arch>
         </os>
       </activation>
-      <properts>
-        <jni.classifr>mac-x86-64-jni</jni.classifr>
+      <properties>
+        <jni.classifier>mac-x86-64-jni</jni.classifier>
       </properties>
     </profile>
 ```
