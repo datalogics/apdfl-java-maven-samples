@@ -4,7 +4,7 @@
 
 [Maven Central](https://central.sonatype.com/artifact/com.datalogics.pdfl/pdfl) offers self-activating license managed APDFL packages for 64-bit Windows, 64-bit Intel Linux, and Mac systems running Mac ARM. The samples in this repo will automatically download the APDFL package for your platform via Maven and obtain a trial license.
 
-Customers can also obtain APDFL without license management for the same three platforms, plus those listed below. You will recieve a ZIP file with the APDFL components for your platform, plus a POM file (`create-artifacts.xml`) that you can use to install APDFL to your local Maven cache, or deploy to private Maven repo on your network. To install the components to your local cache, unzip the file and run the command
+Customers can also obtain APDFL without license management for the same three platforms, plus those listed below. You will receive a ZIP file with the APDFL components for your platform, plus a POM file (`create-artifacts.xml`) that you can use to install APDFL to your local Maven cache, or deploy to private Maven repo on your network. To install the components to your local cache, unzip the file and run the command
 
 ```
 ./mvnw -f create-artifacts.xml install
