@@ -82,7 +82,7 @@
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>ocr-data</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>LATEST</version>
       <type>zip</type>
     </dependency>
   </dependencies>
