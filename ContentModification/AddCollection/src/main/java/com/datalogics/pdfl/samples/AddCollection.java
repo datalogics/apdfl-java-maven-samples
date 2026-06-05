@@ -28,7 +28,7 @@ import com.datalogics.PDFL.Collection;
  * 
  * A PDF Portfolio can hold and display multiple additional files as attachments.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

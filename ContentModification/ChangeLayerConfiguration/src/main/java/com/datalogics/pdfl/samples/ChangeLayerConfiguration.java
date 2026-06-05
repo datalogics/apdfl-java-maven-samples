@@ -7,7 +7,7 @@
  * The sample changes the states of the layers in the document called Layers.pdf and
  * saves the result to a new PDF document.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 package com.datalogics.pdfl.samples;

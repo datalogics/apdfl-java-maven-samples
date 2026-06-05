@@ -9,7 +9,7 @@ import com.datalogics.PDFL.*;
  * This sample demonstrates working with color separations with Encapsulated PostScript (EPS) graphics
  * from a PDF file.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

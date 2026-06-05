@@ -3,7 +3,7 @@
  * Demonstrates working with the Calibrated RGB Color Space, based on the CIE color space.
  * A, B, and C represent red, blue, and green color values.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 package com.datalogics.pdfl.samples;

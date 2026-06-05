@@ -26,7 +26,7 @@ import com.datalogics.PDFL.WordFinderVersion;
  * a National Weather Service web page, highlighting the word "Cloudy" wherever it appears and underlining
  * the word "Rain."
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class UnderlinesAndHighlights {

@@ -9,7 +9,7 @@ import com.datalogics.PDFL.*;
  * This sample demonstrates printing a PDF file. It is similar to PrintPDF, but this
  * program provides a user interface.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

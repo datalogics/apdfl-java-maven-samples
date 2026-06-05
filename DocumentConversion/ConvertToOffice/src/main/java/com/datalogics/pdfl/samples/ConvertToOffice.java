@@ -9,7 +9,7 @@ import com.datalogics.PDFL.Library;
  *
  * ConvertToOffice converts sample PDF documents to Office Documents.
  *
- * Copyright (c) 2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2023-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class ConvertToOffice

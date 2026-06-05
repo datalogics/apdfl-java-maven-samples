@@ -20,7 +20,7 @@ import org.w3c.dom.NodeList;
  * window of a PDF Viewer. Click File/Properties, and then click Additional Metadata.
  *
  *
- * Copyright (c) 2008-2017, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2008-2026, Datalogics, Inc. All rights reserved.
  *
 ==
  */

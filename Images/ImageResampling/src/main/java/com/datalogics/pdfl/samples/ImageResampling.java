@@ -10,7 +10,7 @@ package com.datalogics.pdfl.samples;
  * the process makes the PDF document smaller, too.
  *
  *
- * Copyright (c) 2008-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2008-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

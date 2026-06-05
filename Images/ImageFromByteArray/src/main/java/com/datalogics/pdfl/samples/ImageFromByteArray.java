@@ -24,7 +24,7 @@ import com.datalogics.PDFL.SaveFlags;
 * 
 * When you run the program it will generate a single PDF as an output file.
 *
-* Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+* Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
 *
 */
 

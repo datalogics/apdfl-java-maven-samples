@@ -16,7 +16,7 @@ import com.datalogics.PDFL.*;
  * The results are exported to a PDF output document.
  * 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

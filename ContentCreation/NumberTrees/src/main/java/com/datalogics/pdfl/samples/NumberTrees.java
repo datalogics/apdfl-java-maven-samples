@@ -9,7 +9,7 @@ import com.datalogics.PDFL.*;
  * keys used in a number tree are integers, rather than character strings, and these keys are sorted
  * in ascending numerical order. 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

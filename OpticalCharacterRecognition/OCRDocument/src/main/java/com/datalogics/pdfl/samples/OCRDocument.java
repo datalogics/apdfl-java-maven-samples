@@ -21,7 +21,7 @@ import com.datalogics.PDFL.SaveFlags;
 /*
  * Runs OCR on the document recognizing text found on its rasterized pages.
  * 
- * Copyright (c) 2007-2025, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

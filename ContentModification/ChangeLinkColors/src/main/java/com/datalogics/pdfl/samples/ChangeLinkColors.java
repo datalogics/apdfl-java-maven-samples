@@ -13,7 +13,7 @@ import com.datalogics.PDFL.*;
  * rectangles, and then finds the text that lines up within these rectangles and changes the
  * color of each character that is a part of the hyperlink.  
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class ChangeLinkColors {

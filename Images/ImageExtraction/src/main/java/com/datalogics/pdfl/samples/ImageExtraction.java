@@ -8,7 +8,7 @@ package com.datalogics.pdfl.samples;
  * same directory. Vector images, such as clip art, will not be exported.
  * 
  *
- * Copyright (c) 2007-2024, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

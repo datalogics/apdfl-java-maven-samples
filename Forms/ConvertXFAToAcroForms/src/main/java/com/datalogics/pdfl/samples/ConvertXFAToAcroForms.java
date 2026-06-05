@@ -3,7 +3,7 @@ package com.datalogics.pdfl.samples;
 /*
  * Converts XFA (Dynamic or Static) fields to AcroForms fields and removes XFA fields.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  */
 import com.datalogics.PDFL.*;
 import java.util.EnumSet;

@@ -25,7 +25,7 @@ import java.util.List;
  * CIE XYZ color space, but it includes a dimension L, for lightness,
  * along with a and b coordinates, to define the color.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class MakeDocWithLabColorSpace {

@@ -15,7 +15,7 @@ import com.datalogics.PDFL.PDFXConvertResult;
  * 
  * The sample takes a default input and output a document (both optional). 
  * 
- * Copyright (c) 2017-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2017-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class PDFXConverter

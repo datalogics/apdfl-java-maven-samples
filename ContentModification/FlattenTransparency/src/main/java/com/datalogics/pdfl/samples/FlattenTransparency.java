@@ -18,7 +18,7 @@ import com.datalogics.PDFL.FlattenTransparencyParams;
  * appears on the page. The process to flatten a set of transparencies merges them
  * into a single image on the page.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

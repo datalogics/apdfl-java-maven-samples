@@ -16,7 +16,7 @@ import com.datalogics.PDFL.*;
  * 
  * This program is similar to ImagefromStream, but in this example the PDF file streams hold text.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

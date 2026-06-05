@@ -5,7 +5,7 @@ package com.datalogics.pdfl.samples;
  * A sample which demonstrates the use of the API to view a PDF
  * file and search for text in the file and highlight them.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 import javax.swing.*;

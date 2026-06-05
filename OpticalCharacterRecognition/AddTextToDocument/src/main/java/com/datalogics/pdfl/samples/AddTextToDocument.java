@@ -24,7 +24,7 @@ import com.datalogics.PDFL.Group;
  * Process a document using the optical character recognition engine.
  * Then place the image and the processed text in an output pdf
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

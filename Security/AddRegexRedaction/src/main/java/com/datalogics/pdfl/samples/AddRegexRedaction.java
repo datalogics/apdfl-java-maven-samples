@@ -19,7 +19,7 @@ import java.util.List;
  * document that matches a user-supplied regular expression. When the sample finds the text it
  * will redact the phrase from the output document.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

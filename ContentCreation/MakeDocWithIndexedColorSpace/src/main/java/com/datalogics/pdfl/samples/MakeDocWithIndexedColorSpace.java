@@ -26,7 +26,7 @@ import com.datalogics.PDFL.TextState;
  * to reduce the amount of system memory used for processing images when a limited
  * number of colors are needed.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class MakeDocWithIndexedColorSpace {

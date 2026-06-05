@@ -16,7 +16,7 @@ import com.datalogics.PDFL.PDFAConvertResult;
  * This sample demonstrates converting a standard PDF document into a
  * PDF Archive, or PDF/A, compliant version of a PDF file.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class PDFAConverter

@@ -19,7 +19,7 @@ import com.datalogics.PDFL.PDFName;
  *
  * This sample demonstrates converting the input PDF with the input Invoice XML to a Factur-X compliant PDF.
  *
- * Copyright (c) 2022-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2022-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class FacturXConverter

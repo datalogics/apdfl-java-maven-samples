@@ -9,7 +9,7 @@ import java.util.EnumSet;
 /*
  * This sample demonstrates creating a file containing an ICC-based color space.
  *
- * Copyright (c) 2008-2017, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2008-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class MakeDocWithICCBasedColorSpace {

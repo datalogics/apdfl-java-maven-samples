@@ -21,7 +21,7 @@ import com.datalogics.PDFL.RemoteGoToAction;
  * RemoteGoToActions differs from LaunchActions in that it includes a RemoteDestination object.
  * This object describes the rectangle used in the PDF file in a series of statements at the command prompt. 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

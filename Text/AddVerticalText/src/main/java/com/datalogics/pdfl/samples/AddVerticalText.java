@@ -10,7 +10,7 @@ package com.datalogics.pdfl.samples;
  * The PDF output file presents multiple columns of vertical text. The characters appear in English as well as
  * Mandarin, Japanese, and Korean.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 import com.datalogics.PDFL.Document;

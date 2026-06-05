@@ -25,7 +25,7 @@ import com.datalogics.PDFL.*;
  * parts of the page. The last three, Child1, 2, and 3, are dummy bookmarks that do not respond when you
  * click on them.  They demonstrate how to rearrange existing bookmarks.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class CreateBookmarks 
