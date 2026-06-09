@@ -8,7 +8,7 @@ import java.util.List;
 /*
 * This sample demonstrates creating a PDF document that uses a Separation color space.
  *
- * Copyright (c) 2008-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2008-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class MakeDocWithSeparationColorSpace {

@@ -6,7 +6,7 @@ package com.datalogics.pdfl.samples;
  * one per page. You can also create a multi-page TIFF file. This program requires that you enter 
  * formatting values manually at the command line. 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

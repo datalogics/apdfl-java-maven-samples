@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2009-2026, Datalogics, Inc. All rights reserved.
  *
  *
  * ============================ PDFFilenameFilter ===================================

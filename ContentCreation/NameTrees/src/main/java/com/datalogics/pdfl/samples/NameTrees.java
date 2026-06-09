@@ -20,7 +20,7 @@ import com.datalogics.PDFL.*;
  * dictionary, instead of using a code value as a key to identify an object, a name tree
  * uses names as keys to map to data objects. 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

@@ -4,7 +4,7 @@ package com.datalogics.pdfl.samples;
   * 
  * This sample program adds six lines of Unicode text to a PDF file, in six different languages.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 import com.datalogics.PDFL.Document;

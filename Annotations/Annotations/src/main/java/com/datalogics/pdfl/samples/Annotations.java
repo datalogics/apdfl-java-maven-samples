@@ -11,7 +11,7 @@ import com.datalogics.PDFL.Page;
  * 
  * This sample demonstrates how to find and describe annotations in an existing PDF document.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class Annotations {

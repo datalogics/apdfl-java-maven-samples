@@ -17,7 +17,7 @@ import com.datalogics.PDFL.*;
  * to suit your applications needs and drop such content to achieve better compression if you already
  * know it's unnecessary.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

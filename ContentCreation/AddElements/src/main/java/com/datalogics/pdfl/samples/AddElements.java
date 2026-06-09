@@ -7,7 +7,7 @@ package com.datalogics.pdfl.samples;
  * The third page features a rectangle and a curved design. Use this sample for ideas on how
  * to draw an image on a PDF page.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 import com.datalogics.PDFL.*;

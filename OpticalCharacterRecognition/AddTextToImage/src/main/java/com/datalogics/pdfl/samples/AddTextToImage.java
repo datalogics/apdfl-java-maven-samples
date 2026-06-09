@@ -22,7 +22,7 @@ import com.datalogics.PDFL.SaveFlags;
  * The sample uses an image as input which will be processed by the optical character recognition engine.
  * We will then place the image and the processed text in an output pdf
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

@@ -10,7 +10,7 @@ import com.datalogics.PDFL.*;
  * 
  * This sample lists the text for the words in a PDF document.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

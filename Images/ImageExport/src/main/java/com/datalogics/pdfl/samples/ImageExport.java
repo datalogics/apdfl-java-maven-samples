@@ -11,7 +11,7 @@ package com.datalogics.pdfl.samples;
  * sets of graphics files for those three images. The sample program ignores text, parsing the
  * PDF syntax to identify any raster or vector images found on every page.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

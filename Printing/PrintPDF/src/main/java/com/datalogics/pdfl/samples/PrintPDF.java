@@ -14,7 +14,7 @@ import com.datalogics.PDFL.*;
  * computer in use. This program is useful in that it identifies the API you need to use to
  * print PDF files. It also generates a Postscript (PS) output file. 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

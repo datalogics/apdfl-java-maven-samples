@@ -10,7 +10,7 @@ import com.datalogics.PDFL.*;
  * This sample demonstrates changing the shading of an image on a PDF document page. The image gradually
  * changes from black on the left side of the image, to red on the right side.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class GradientShade {

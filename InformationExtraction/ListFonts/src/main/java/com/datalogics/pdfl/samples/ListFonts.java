@@ -11,7 +11,7 @@ import java.util.*;
  * The font name appears with the type, such as Type0, Type1, or TrueType, and the encoding method,
  * such as WinAnsiEncoding.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class ListFonts {

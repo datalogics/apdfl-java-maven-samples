@@ -6,7 +6,7 @@ package com.datalogics.pdfl.samples;
  * in a special window on your computer. The program defines an optional input document to display.
  * The entire first page is converted to a graphic.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

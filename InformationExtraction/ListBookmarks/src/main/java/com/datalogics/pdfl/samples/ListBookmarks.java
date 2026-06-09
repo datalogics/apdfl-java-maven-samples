@@ -3,7 +3,7 @@ package com.datalogics.pdfl.samples;
 * 
  * This sample finds and describes the bookmarks included in a PDF document.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 import java.io.BufferedReader;

@@ -27,7 +27,7 @@ import com.datalogics.PDFL.Segment;
  * Paths in PDF documents, or clipping paths, define the boundaries for art or graphics.
  * 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  */
 public class ListPaths {
 

@@ -17,7 +17,7 @@ import com.datalogics.PDFL.SeparationColorSpace;
 /*
  * This sample demonstrates drawing a list of grayscale separations from a PDF file to multi-paged TIFF file.
  *
- * Copyright (c) 2007-2024, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class GetSeparatedImages {

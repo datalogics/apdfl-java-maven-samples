@@ -8,7 +8,7 @@ package com.datalogics.pdfl.samples;
  *  - Flatten XFA (Dynamic or Static) to regular page content which converts and expands XFA fields to regular PDF content and removes the XFA fields.
  *  - Flatten AcroForms to regular page content which converts AcroForm fields to regular page content and removes the AcroForm fields.
  *
- * Copyright (c) 2024, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2024-2026, Datalogics, Inc. All rights reserved.
  */
 import com.datalogics.PDFL.*;
 import java.util.EnumSet;

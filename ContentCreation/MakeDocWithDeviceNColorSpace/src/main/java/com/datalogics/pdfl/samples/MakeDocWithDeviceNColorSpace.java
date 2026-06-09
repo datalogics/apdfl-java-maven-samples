@@ -8,7 +8,7 @@ import java.util.List;
 /*
  * This sample demonstrates creating a file containing a DeviceN color space.
  *
- * Copyright (c) 2008-2017, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2008-2026, Datalogics, Inc. All rights reserved.
 *
  */
 public class MakeDocWithDeviceNColorSpace {

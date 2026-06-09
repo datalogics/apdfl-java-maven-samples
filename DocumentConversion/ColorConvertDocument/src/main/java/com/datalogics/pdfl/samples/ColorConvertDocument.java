@@ -26,7 +26,7 @@ import com.datalogics.PDFL.ColorConvertParams;
  * Note that the color profile is not embedded by default; rather, the default is not to embed the color profile.
  * The user must set the option to embed to True.
  * 
- * Copyright (c) 2017-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2017-2026, Datalogics, Inc. All rights reserved.
  *
  */
  

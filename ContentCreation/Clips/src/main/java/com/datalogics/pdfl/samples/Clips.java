@@ -18,7 +18,7 @@ import com.datalogics.PDFL.*;
 /*
  * This sample demonstrates working with Clip objects. A clipping path is used to edit the borders of a graphics object.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

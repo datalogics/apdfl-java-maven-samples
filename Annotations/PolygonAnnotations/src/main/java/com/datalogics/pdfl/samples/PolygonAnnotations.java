@@ -11,7 +11,7 @@ import com.datalogics.PDFL.*;
  * This program generates a PDF output file with a polygon shape (a triangle) as an annotation to the file.
  * The program defines the vertices for the outlines of the annotation, and the line and fill colors.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

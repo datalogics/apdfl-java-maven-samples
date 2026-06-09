@@ -25,7 +25,7 @@ import com.datalogics.PDFL.TextState;
  * managing them by individual Glyph ID codes.
  * 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

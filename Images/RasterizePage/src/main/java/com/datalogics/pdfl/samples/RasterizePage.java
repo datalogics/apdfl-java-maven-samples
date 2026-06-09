@@ -27,7 +27,7 @@ public class RasterizePage {
 	 * 3. An output image file with content drawn from an unrotated PDF page, but that contains only the top half of
 	 *    the original page.
 	 *
-	 * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+	 * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
 	 *
 	 */
 	

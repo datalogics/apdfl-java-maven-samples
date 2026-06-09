@@ -7,7 +7,7 @@
  * You can toggle back and forth to make a layer visible or invisible
  * in a PDF Viewer.
  *
- * Copyright (c) 2007-2025, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

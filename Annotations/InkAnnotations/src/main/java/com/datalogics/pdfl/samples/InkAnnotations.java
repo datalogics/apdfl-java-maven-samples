@@ -13,7 +13,7 @@ import java.util.List;
  * This sample creates and adds a new Ink annotation to a PDF document. An Ink annotation is a freeform line,
  * similar to what you would create with a pen, or with a stylus on a mobile device.
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

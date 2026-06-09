@@ -4,7 +4,7 @@ package com.datalogics.pdfl.samples;
  * This sample shows how to open a PDF document, search for text in the pages and highlight
  * the text. This utility is a simpler version of the JavaViewer sample.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

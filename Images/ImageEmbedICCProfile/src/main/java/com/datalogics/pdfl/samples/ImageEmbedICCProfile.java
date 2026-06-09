@@ -15,7 +15,7 @@ import com.datalogics.PDFL.PDFStream;
  * The program sets up how the output will be rendered and generates a TIF image file or
  * series of TIF files as output.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

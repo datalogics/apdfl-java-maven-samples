@@ -15,7 +15,7 @@ import com.datalogics.PDFL.ViewDestination;
  * 
  * This program creates a PDF file with an embedded hyperlink, which takes the viewer to the second page of the document.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class LinkAnnotations {

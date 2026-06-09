@@ -13,7 +13,7 @@ import com.datalogics.PDFL.*;
  * takes the content from the second PDF input document and inserts it in the first
  * input document, and saves the result to the output PDF document.
  *
- * Copyright (c) 2007-2021, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 public class MergePDF {

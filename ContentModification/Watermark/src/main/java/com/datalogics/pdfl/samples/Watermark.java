@@ -14,7 +14,7 @@ import com.datalogics.PDFL.*;
  * a set of photographs shown in a PDF file so that they cannot be easily duplicated without
  * the permission of the owner.
  * 
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 

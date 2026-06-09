@@ -16,7 +16,7 @@ import com.datalogics.PDFL.*;
  * PDF file is tagged or untagged. Tagging is used to make PDF files accessible
  * to the blind or to people with vision problems. 
  *
- * Copyright (c) 2007-2023, Datalogics, Inc. All rights reserved.
+ * Copyright (c) 2007-2026, Datalogics, Inc. All rights reserved.
  *
  */
 
