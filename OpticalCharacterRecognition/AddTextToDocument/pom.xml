@@ -82,7 +82,7 @@
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>ocr-data</artifactId>
-      <version>[21.0,22.0)</version>
+      <version>LATEST</version>
       <type>zip</type>
     </dependency>
   </dependencies>
@@ -105,53 +105,41 @@
             <id>unpack-resources</id>
             <phase>generate-resources</phase>
             <goals>
-              <goal>unpack</goal>
+              <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.datalogics.pdfl</groupId>
-                  <artifactId>pdfl</artifactId>
-                  <classifier>resources</classifier>
-                  <type>zip</type>
-                  <outputDirectory>${project.build.directory}/lib/Resources</outputDirectory>
-                </artifactItem>
-              </artifactItems>
+              <includeGroupIds>com.datalogics.pdfl</includeGroupIds>
+              <includeArtifactIds>pdfl</includeArtifactIds>
+              <includeClassifiers>resources</includeClassifiers>
+              <includeTypes>zip</includeTypes>
+              <outputDirectory>${project.build.directory}/lib/Resources</outputDirectory>
             </configuration>
           </execution>
           <execution>
             <id>unpack-jni</id>
             <phase>generate-resources</phase>
             <goals>
-              <goal>unpack</goal>
+              <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.datalogics.pdfl</groupId>
-                  <artifactId>pdfl</artifactId>
-                  <classifier>${jni.classifier}</classifier>
-                  <type>zip</type>
-                  <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                </artifactItem>
-              </artifactItems>
+              <includeGroupIds>com.datalogics.pdfl</includeGroupIds>
+              <includeArtifactIds>pdfl</includeArtifactIds>
+              <includeClassifiers>${jni.classifier}</includeClassifiers>
+              <includeTypes>zip</includeTypes>
+              <outputDirectory>${project.build.directory}/lib</outputDirectory>
             </configuration>
           </execution>
           <execution>
             <id>unpack-ocr-data</id>
             <phase>generate-resources</phase>
             <goals>
-              <goal>unpack</goal>
+              <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
-              <artifactItems>
-                <artifactItem>
-                   <groupId>com.datalogics.pdfl</groupId>
-                   <artifactId>ocr-data</artifactId>
-                   <type>zip</type>
-                   <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                </artifactItem>
-              </artifactItems>
+              <includeGroupIds>com.datalogics.pdfl</includeGroupIds>
+              <includeArtifactIds>ocr-data</includeArtifactIds>
+              <includeTypes>zip</includeTypes>
+              <outputDirectory>${project.build.directory}/lib</outputDirectory>
             </configuration>
           </execution>
         </executions>
