@@ -114,6 +114,7 @@
               <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
+              <includeGroupIds>com.datalogics.pdfl</includeGroupIds>
               <includeArtifactIds>pdfl</includeArtifactIds>
               <includeClassifiers>resources</includeClassifiers>
               <includeTypes>zip</includeTypes>
@@ -127,6 +128,7 @@
               <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
+              <includeGroupIds>com.datalogics.pdfl</includeGroupIds>
               <includeArtifactIds>pdfl</includeArtifactIds>
               <includeClassifiers>${jni.classifier}</includeClassifiers>
               <includeTypes>zip</includeTypes>
@@ -140,6 +142,7 @@
               <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
+              <includeGroupIds>com.datalogics.pdfl</includeGroupIds>
               <includeArtifactIds>forms-extension</includeArtifactIds>
               <includeClassifiers>${jni.classifier}</includeClassifiers>
               <includeTypes>zip</includeTypes>
