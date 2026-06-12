@@ -46,6 +46,31 @@
         <jni.classifier>linux-x86-64-jni</jni.classifier>
       </properties>
     </profile>
+    <profile>
+      <id>WindowsArm64</id>
+      <activation>
+        <os>
+          <family>windows</family>
+          <arch>aarch64</arch>
+        </os>
+      </activation>
+      <properties>
+        <jni.classifier>win-arm-64-jni</jni.classifier>
+      </properties>
+    </profile>
+    <profile>
+      <id>LinuxArm64</id>
+      <activation>
+        <os>
+          <!-- Use OS <name> instead of <family> because the "unix" <family> also includes Mac -->
+          <name>Linux</name>
+          <arch>aarch64</arch>
+        </os>
+      </activation>
+      <properties>
+        <jni.classifier>linux-arm-64-jni</jni.classifier>
+      </properties>
+    </profile>
   </profiles>
   <dependencies>
     <dependency>

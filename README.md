@@ -25,7 +25,7 @@ a valid activation key <b>prior</b> to instantiating the library.
 ```
 
 ## Running the Samples
-**For x64 Windows, x64 Linux, or macOS ARM systems:**
+**For x64 Windows, Windows ARM64, x64 Linux, Linux ARM64, or macOS ARM systems:**
 Samples can be built and run easily in the [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE.
 
 1. Clone this repository

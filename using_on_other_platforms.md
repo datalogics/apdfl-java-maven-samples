@@ -2,9 +2,9 @@
 
 ## Installing APDFL for non license managed platforms
 
-[Maven Central](https://central.sonatype.com/artifact/com.datalogics.pdfl/pdfl) offers self-activating license managed APDFL packages for 64-bit Windows, 64-bit Intel Linux, and Mac systems running Mac ARM. The samples in this repo will automatically download the APDFL package for your platform via Maven and obtain a trial license.
+[Maven Central](https://central.sonatype.com/artifact/com.datalogics.pdfl/pdfl) offers self-activating license managed APDFL packages for 64-bit Windows, 64-bit Windows ARM, 64-bit Intel Linux, 64-bit Linux ARM, and Mac systems running Mac ARM. The samples in this repo will automatically download the APDFL package for your platform via Maven and obtain a trial license.
 
-Customers can also obtain APDFL without license management for the same three platforms, plus those listed below. You will receive a ZIP file with the APDFL components for your platform, plus a POM file (`create-artifacts.xml`) that you can use to install APDFL to your local Maven cache, or deploy to private Maven repo on your network. To install the components to your local cache, unzip the file and run the command
+Customers can also obtain APDFL without license management for the same five platforms, plus those listed below. You will receive a ZIP file with the APDFL components for your platform, plus a POM file (`create-artifacts.xml`) that you can use to install APDFL to your local Maven cache, or deploy to private Maven repo on your network. To install the components to your local cache, unzip the file and run the command
 
 ```
 ./mvnw -f create-artifacts.xml install
@@ -30,22 +30,6 @@ After you've installed APDFL for your platform to your Maven cache, you can run 
       </activation>
       <properties>
         <jni.classifier>mac-x86-64-jni</jni.classifier>
-      </properties>
-    </profile>
-```
-
-### **Linux ARM (64-bit)**
-```
-    <profile>
-      <id>LinuxArm</id>
-      <activation>
-        <os>
-          <name>Linux</name>
-          <arch>aarch64</arch>
-        </os>
-      </activation>
-      <properties>
-        <jni.classifier>linux-arm-64-jni</jni.classifier>
       </properties>
     </profile>
 ```
@@ -94,21 +78,6 @@ After you've installed APDFL for your platform to your Maven cache, you can run 
       </activation>
       <properties>
         <jni.classifier>linux-x86-32-jni</jni.classifier>
-      </properties>
-    </profile>
-```
-### **Windows ARM (64-bit)**
-```
-    <profile>
-      <id>WindowsArm</id>
-      <activation>
-        <os>
-          <family>windows</family>
-          <arch>aarch64</arch>
-        </os>
-      </activation>
-      <properties>
-        <jni.classifier>win-arm-64-jni</jni.classifier>
       </properties>
     </profile>
 ```
