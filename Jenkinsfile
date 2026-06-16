@@ -36,6 +36,7 @@ pipeline {
                     CONAN_USER_HOME = "${WORKSPACE}"
                     CONAN_NON_INTERACTIVE = '1'
                     CONAN_PRINT_RUN_COMMANDS = '1'
+                    APDFL_KEY = credentials('apdfl-rlm-key')
                 }
                 stages {
                     stage('Axis'){
