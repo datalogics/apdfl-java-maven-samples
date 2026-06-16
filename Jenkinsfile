@@ -2,7 +2,7 @@
 def ENV_LOC=[:]
 pipeline {
     parameters {
-        choice(name: 'PLATFORM_FILTER', choices: ['all', 'windows-java-samples', 'mac-arm-java-samples', 'rocky9-java-samples'], description: 'Run on specific platform')
+        choice(name: 'PLATFORM_FILTER', choices: ['all', 'windows-java-samples', 'windows-arm-java-samples', 'mac-arm-java-samples', 'rocky9-java-samples', 'rocky9-arm-java-samples'], description: 'Run on specific platform')
         booleanParam defaultValue: false, description: 'Completely clean the workspace before building, including the Conan cache', name: 'CLEAN_WORKSPACE'
         booleanParam defaultValue: false, description: 'Run clean-samples', name: 'DISTCLEAN'
     }
@@ -29,7 +29,7 @@ pipeline {
                 axes {
                     axis {
                         name 'NODE'
-                        values 'windows-java-samples', 'mac-arm-java-samples', 'rocky9-java-samples'
+                        values 'windows-java-samples', 'windows-arm-java-samples', 'mac-arm-java-samples', 'rocky9-java-samples', 'rocky9-arm-java-samples'
                     }
                 }
                 environment {
