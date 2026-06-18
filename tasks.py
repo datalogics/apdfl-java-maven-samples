@@ -93,6 +93,16 @@ samples_list = [
         ]
 
 
+def skip_on_windows_arm(sample):
+    # Forms Extension is not available for Windows ARM on APDFL 21, so its
+    # samples cannot be built or run there.
+    forms_samples = ('ConvertXFAToAcroForms', 'ExportFormsData',
+                     'FlattenForms', 'ImportFormsData')
+    is_windows_arm = (platform.system() == 'Windows' and
+                      platform.machine().lower() in ('arm64', 'aarch64'))
+    return is_windows_arm and any(s in sample for s in forms_samples)
+
+
 @task()
 def clean_samples(ctx):
     """Cleans files that were generated from building the samples"""
@@ -108,6 +118,10 @@ def build_samples(ctx):
     """Builds the APDFL Java Maven samples"""
     for sample in samples_list:
         full_path = os.path.join(os.getcwd(), sample)
+
+        if skip_on_windows_arm(sample):
+            print(f'{sample} Forms Extension not available on Windows ARM')
+            continue
 
         if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or
                                               'CreateDocFromXPS' in sample or
@@ -172,6 +186,10 @@ def run_samples(ctx):
         raise ValueError("APDFL_KEY environment variable not set.")
 
     for sample in samples_list:
+        if skip_on_windows_arm(sample):
+            print(f'{sample} Forms Extension not available on Windows ARM')
+            continue
+
         if platform.system() == "Windows":
             os.environ["PATH"] += ";"
 
