@@ -36,6 +36,7 @@ pipeline {
                     CONAN_USER_HOME = "${WORKSPACE}"
                     CONAN_NON_INTERACTIVE = '1'
                     CONAN_PRINT_RUN_COMMANDS = '1'
+                    CONAN_LOGIN_USERNAME = 'devauto'
                 }
                 stages {
                     stage('Axis'){
@@ -106,16 +107,14 @@ pipeline {
                         steps {
                             echo "Clean ${NODE}"
                             script {
-                                configFileProvider([configFile(fileId: 'devauto-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                                    if (isUnix()) {
-                                        sh """. ${ENV_LOC[NODE]}/bin/activate
-                                              invoke clean-samples
-                                        """
-                                    } else {
-                                        bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
-                                              invoke clean-samples
-                                        """
-                                    }
+                                if (isUnix()) {
+                                    sh """. ${ENV_LOC[NODE]}/bin/activate
+                                          invoke clean-samples
+                                    """
+                                } else {
+                                    bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
+                                          invoke clean-samples
+                                    """
                                 }
                             }
                         }
@@ -124,15 +123,18 @@ pipeline {
                         steps {
                             echo "Build ${NODE}"
                             script {
-                                configFileProvider([configFile(fileId: 'devauto-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                                    if (isUnix()) {
-                                        sh """. ${ENV_LOC[NODE]}/bin/activate
-                                              invoke build-samples
-                                        """
-                                    } else {
-                                        bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
-                                              invoke build-samples
-                                        """
+                                withCredentials([string(credentialsId: 'jfrog-dev-token', variable: 'CONAN_PASSWORD')]) {
+                                    configFileProvider([configFile(fileId: 'devauto-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                                        patchMavenSettings()
+                                        if (isUnix()) {
+                                            sh """. ${ENV_LOC[NODE]}/bin/activate
+                                                  invoke build-samples
+                                            """
+                                        } else {
+                                            bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
+                                                  invoke build-samples
+                                            """
+                                        }
                                     }
                                 }
                             }
@@ -158,16 +160,14 @@ pipeline {
                         steps {
                             echo "Clean ${NODE}"
                             script {
-                                configFileProvider([configFile(fileId: 'devauto-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                                    if (isUnix()) {
-                                        sh """. ${ENV_LOC[NODE]}/bin/activate
-                                              invoke clean-samples
-                                        """
-                                    } else {
-                                        bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
-                                              invoke clean-samples
-                                        """
-                                    }
+                                if (isUnix()) {
+                                    sh """. ${ENV_LOC[NODE]}/bin/activate
+                                          invoke clean-samples
+                                    """
+                                } else {
+                                    bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
+                                          invoke clean-samples
+                                    """
                                 }
                             }
                         }
@@ -175,5 +175,25 @@ pipeline {
                 }
             }
         }
+    }
+}
+
+def patchMavenSettings() {
+    if (!env.CONAN_PASSWORD) {
+        error '[ERROR] CONAN_PASSWORD is not set (missing Jenkins credentials binding)'
+    }
+    if (!env.CONAN_LOGIN_USERNAME) {
+        error '[ERROR] CONAN_LOGIN_USERNAME is not set'
+    }
+    def originalSettings = readFile(env.MAVEN_SETTINGS)
+    def patchedSettings = originalSettings
+        .replace('${CONAN_LOGIN_USERNAME}', env.CONAN_LOGIN_USERNAME)
+        .replace('${CONAN_PASSWORD}', env.CONAN_PASSWORD)
+        .replace('<username></username>', "<username>${env.CONAN_LOGIN_USERNAME}</username>")
+        .replace('<username/>', "<username>${env.CONAN_LOGIN_USERNAME}</username>")
+        .replace('<password></password>', "<password>${env.CONAN_PASSWORD}</password>")
+        .replace('<password/>', "<password>${env.CONAN_PASSWORD}</password>")
+    if (patchedSettings != originalSettings) {
+        writeFile file: env.MAVEN_SETTINGS, text: patchedSettings
     }
 }
