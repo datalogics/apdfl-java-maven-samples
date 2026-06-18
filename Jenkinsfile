@@ -185,15 +185,23 @@ def patchMavenSettings() {
     if (!env.CONAN_LOGIN_USERNAME) {
         error '[ERROR] CONAN_LOGIN_USERNAME is not set'
     }
-    def originalSettings = readFile(env.MAVEN_SETTINGS)
-    def patchedSettings = originalSettings
-        .replace('${CONAN_LOGIN_USERNAME}', env.CONAN_LOGIN_USERNAME)
-        .replace('${CONAN_PASSWORD}', env.CONAN_PASSWORD)
-        .replace('<username></username>', "<username>${env.CONAN_LOGIN_USERNAME}</username>")
-        .replace('<username/>', "<username>${env.CONAN_LOGIN_USERNAME}</username>")
-        .replace('<password></password>', "<password>${env.CONAN_PASSWORD}</password>")
-        .replace('<password/>', "<password>${env.CONAN_PASSWORD}</password>")
-    if (patchedSettings != originalSettings) {
-        writeFile file: env.MAVEN_SETTINGS, text: patchedSettings
+    def original = readFile(env.MAVEN_SETTINGS)
+    def start = original.indexOf('<servers>')
+    def end = original.indexOf('</servers>')
+    if (start < 0 || end < 0) {
+        error '[ERROR] No <servers> block found in the Maven settings'
     }
+    def serversBlock = """<servers>
+    <server>
+      <username>${env.CONAN_LOGIN_USERNAME}</username>
+      <password>${env.CONAN_PASSWORD}</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>${env.CONAN_LOGIN_USERNAME}</username>
+      <password>${env.CONAN_PASSWORD}</password>
+      <id>snapshots</id>
+    </server>
+  """
+    writeFile file: env.MAVEN_SETTINGS, text: original.substring(0, start) + serversBlock + original.substring(end)
 }
