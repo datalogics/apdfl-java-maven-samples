@@ -93,28 +93,13 @@ samples_list = [
         ]
 
 
-def mvn_command(goal):
-    """Build an 'mvn <goal>' command line.
-
-    If the MAVEN_SETTINGS environment variable is set (e.g. by the Jenkins
-    Config File Provider, which exposes the managed devauto-maven-settings
-    file), pass it with -s so Maven resolves the APDFL artifacts from the
-    DL Artifactory mirror instead of public Maven Central. When it is not
-    set (e.g. a developer machine), fall back to the default
-    ~/.m2/settings.xml."""
-    settings = os.environ.get('MAVEN_SETTINGS')
-    if settings:
-        return f'mvn -s "{settings}" {goal}'
-    return f'mvn {goal}'
-
-
 @task()
 def clean_samples(ctx):
     """Cleans files that were generated from building the samples"""
     for sample in samples_list:
         full_path = os.path.join(os.getcwd(), sample)
         with ctx.cd(full_path):
-            ctx.run(mvn_command('clean'))
+            ctx.run('mvn clean')
             ctx.run('git clean -fdx')
 
 
@@ -139,7 +124,7 @@ def build_samples(ctx):
             continue
 
         with ctx.cd(full_path):
-            ctx.run(mvn_command('package'))
+            ctx.run('mvn package')
 
 
 def remove_last_path_entry():

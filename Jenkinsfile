@@ -36,7 +36,6 @@ pipeline {
                     CONAN_USER_HOME = "${WORKSPACE}"
                     CONAN_NON_INTERACTIVE = '1'
                     CONAN_PRINT_RUN_COMMANDS = '1'
-                    CONAN_LOGIN_USERNAME = 'devauto'
                 }
                 stages {
                     stage('Axis'){
@@ -123,19 +122,14 @@ pipeline {
                         steps {
                             echo "Build ${NODE}"
                             script {
-                                withCredentials([string(credentialsId: 'jfrog-dev-token', variable: 'CONAN_PASSWORD')]) {
-                                    configFileProvider([configFile(fileId: 'devauto-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                                        patchMavenSettings()
-                                        if (isUnix()) {
-                                            sh """. ${ENV_LOC[NODE]}/bin/activate
-                                                  invoke build-samples
-                                            """
-                                        } else {
-                                            bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
-                                                  invoke build-samples
-                                            """
-                                        }
-                                    }
+                                if (isUnix()) {
+                                    sh """. ${ENV_LOC[NODE]}/bin/activate
+                                          invoke build-samples
+                                    """
+                                } else {
+                                    bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
+                                          invoke build-samples
+                                    """
                                 }
                             }
                         }
@@ -176,32 +170,4 @@ pipeline {
             }
         }
     }
-}
-
-def patchMavenSettings() {
-    if (!env.CONAN_PASSWORD) {
-        error '[ERROR] CONAN_PASSWORD is not set (missing Jenkins credentials binding)'
-    }
-    if (!env.CONAN_LOGIN_USERNAME) {
-        error '[ERROR] CONAN_LOGIN_USERNAME is not set'
-    }
-    def original = readFile(env.MAVEN_SETTINGS)
-    def start = original.indexOf('<servers>')
-    def end = original.indexOf('</servers>')
-    if (start < 0 || end < 0) {
-        error '[ERROR] No <servers> block found in the Maven settings'
-    }
-    def serversBlock = """<servers>
-    <server>
-      <username>${env.CONAN_LOGIN_USERNAME}</username>
-      <password>${env.CONAN_PASSWORD}</password>
-      <id>central</id>
-    </server>
-    <server>
-      <username>${env.CONAN_LOGIN_USERNAME}</username>
-      <password>${env.CONAN_PASSWORD}</password>
-      <id>snapshots</id>
-    </server>
-  """
-    writeFile file: env.MAVEN_SETTINGS, text: original.substring(0, start) + serversBlock + original.substring(end)
 }
