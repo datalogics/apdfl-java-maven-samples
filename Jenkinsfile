@@ -2,7 +2,7 @@
 def ENV_LOC=[:]
 pipeline {
     parameters {
-        choice(name: 'PLATFORM_FILTER', choices: ['all', 'windows-java-samples', 'mac-arm-java-samples', 'rocky9-java-samples'], description: 'Run on specific platform')
+        choice(name: 'PLATFORM_FILTER', choices: ['all', 'windows-java-samples', 'windows-arm-java-samples', 'mac-arm-java-samples', 'rocky9-java-samples', 'rocky9-arm-java-samples'], description: 'Run on specific platform')
         booleanParam defaultValue: false, description: 'Completely clean the workspace before building, including the Conan cache', name: 'CLEAN_WORKSPACE'
         booleanParam defaultValue: false, description: 'Run clean-samples', name: 'DISTCLEAN'
     }
@@ -29,13 +29,14 @@ pipeline {
                 axes {
                     axis {
                         name 'NODE'
-                        values 'windows-java-samples', 'mac-arm-java-samples', 'rocky9-java-samples'
+                        values 'windows-java-samples', 'windows-arm-java-samples', 'mac-arm-java-samples', 'rocky9-java-samples', 'rocky9-arm-java-samples'
                     }
                 }
                 environment {
                     CONAN_USER_HOME = "${WORKSPACE}"
                     CONAN_NON_INTERACTIVE = '1'
                     CONAN_PRINT_RUN_COMMANDS = '1'
+                    APDFL_KEY = credentials('apdfl-rlm-key')
                 }
                 stages {
                     stage('Axis'){
@@ -86,14 +87,16 @@ pipeline {
                                         returnStdout: true
                                     ).trim()
                                 } else {
-                                    // Using the mkenv.py script like this assumes the Python Launcher is
-                                    // installed on the Windows host.
-                                    // https://docs.python.org/3/using/windows.html#launcher
-                                    bat '.\\mkenv.py --verbose'
+                                    // Invoke through the Python Launcher (py) explicitly rather than
+                                    // relying on the .py file association, which on some Windows hosts
+                                    // does not forward arguments (%*). Without the argument, mkenv.py
+                                    // runs a full environment setup and prints pip output, corrupting
+                                    // the value captured below.
+                                    bat 'py mkenv.py --verbose'
                                     ENV_LOC[NODE] = bat (
                                         // The @ prevents Windows from echoing the command itself into the stdout,
                                         // which would corrupt the value of the returned data.
-                                        script: '@.\\mkenv.py --env-name',
+                                        script: '@py mkenv.py --env-name',
                                         returnStdout: true
                                     ).trim()
                                 }
