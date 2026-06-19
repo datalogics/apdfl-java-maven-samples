@@ -94,13 +94,13 @@ samples_list = [
 
 
 def skip_on_windows_arm(sample):
-    # Forms Extension is not available for Windows ARM on APDFL 21, so its
-    # samples cannot be built or run there.
-    forms_samples = ('ConvertXFAToAcroForms', 'ExportFormsData',
-                     'FlattenForms', 'ImportFormsData')
+    # These samples use APDFL features that are not implemented on Windows ARM
+    # for APDFL 21 (Forms Extension and Office conversion).
+    unsupported = ('ConvertXFAToAcroForms', 'ExportFormsData', 'FlattenForms',
+                   'ImportFormsData', 'ConvertToOffice')
     is_windows_arm = (platform.system() == 'Windows' and
                       platform.machine().lower() in ('arm64', 'aarch64'))
-    return is_windows_arm and any(s in sample for s in forms_samples)
+    return is_windows_arm and any(s in sample for s in unsupported)
 
 
 @task()
@@ -120,7 +120,7 @@ def build_samples(ctx):
         full_path = os.path.join(os.getcwd(), sample)
 
         if skip_on_windows_arm(sample):
-            print(f'{sample} Forms Extension not available on Windows ARM')
+            print(f'{sample} not available on Windows ARM')
             continue
 
         if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or
@@ -187,7 +187,7 @@ def run_samples(ctx):
 
     for sample in samples_list:
         if skip_on_windows_arm(sample):
-            print(f'{sample} Forms Extension not available on Windows ARM')
+            print(f'{sample} not available on Windows ARM')
             continue
 
         if platform.system() == "Windows":
