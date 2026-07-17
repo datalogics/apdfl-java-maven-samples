@@ -364,3 +364,5 @@ $RECYCLE.BIN/
 /*_debug_lm
 /icons
 activate*
+# Jenkins job-local Maven repository
+/.m2repo
