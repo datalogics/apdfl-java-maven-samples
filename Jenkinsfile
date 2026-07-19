@@ -12,10 +12,6 @@ pipeline {
         timeout(time: 4, unit: "HOURS")
     }
     agent none
-    triggers {
-        // The job will be triggered only for the develop branch at 7am every day.
-        parameterizedCron(env.BRANCH_NAME == "develop-18" ? "0 7 * * *" : "")
-    }
     stages {
         stage('Matrix stage') {
             matrix {
