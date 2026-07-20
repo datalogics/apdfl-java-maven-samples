@@ -3,7 +3,7 @@ def ENV_LOC=[:]
 pipeline {
     parameters {
         choice(name: 'PLATFORM_FILTER', choices: ['all', 'windows-java-samples', 'windows-arm-java-samples', 'mac-arm-java-samples', 'rocky9-java-samples', 'rocky9-arm-java-samples'], description: 'Run on specific platform')
-        booleanParam defaultValue: false, description: 'Completely clean the workspace before building, including the Conan cache', name: 'CLEAN_WORKSPACE'
+        booleanParam defaultValue: false, description: 'Completely clean the workspace before building, including the Maven package cache', name: 'CLEAN_WORKSPACE'
         booleanParam defaultValue: false, description: 'Run clean-samples', name: 'DISTCLEAN'
     }
     options{
@@ -33,10 +33,10 @@ pipeline {
                     }
                 }
                 environment {
-                    CONAN_USER_HOME = "${WORKSPACE}"
-                    CONAN_NON_INTERACTIVE = '1'
-                    CONAN_PRINT_RUN_COMMANDS = '1'
                     APDFL_KEY = credentials('apdfl-rlm-key')
+                    // Job-local Maven repository; the node-wide ~/.m2 is shared with
+                    // deploy jobs that install unreleased artifacts into it.
+                    MAVEN_OPTS = "-Dmaven.repo.local=${WORKSPACE}/.m2repo"
                 }
                 stages {
                     stage('Axis'){
@@ -52,24 +52,24 @@ pipeline {
                         }
                         steps {
                             echo "Clean ${NODE}"
+                            // Removes the package caches only on manually-triggered builds
+                            cleanPackageCaches()
                             script {
                                 // Ensure that the checkout is clean and any changes
                                 // to .gitattributes and .gitignore have been taken
-                                // into effect
+                                // into effect. The Maven package cache is excluded:
+                                // cleanPackageCaches owns its removal.
                                 if (isUnix()) {
                                     sh """
                                           git rm -f -q -r .
                                           git reset --hard HEAD
-                                          git clean -fdx
+                                          git clean -fdx -e .m2repo
                                     """
                                 } else {
-                                    // On Windows, 'git clean' can't handle long paths in .conan,
-                                    // so remove that first.
                                     bat """
-                                          if exist ${WORKSPACE}\\.conan\\ rmdir/s/q ${WORKSPACE}\\.conan
                                           git rm -q -r .
                                           git reset --hard HEAD
-                                          git clean -fdx
+                                          git clean -fdx -e .m2repo
                                     """
                                 }
                             }
