@@ -77,6 +77,31 @@
         <jni.classifier>linux-arm-64-jni</jni.classifier>
       </properties>
     </profile>
+    <!--
+      The web-conversion plugin zip (DL210WebToPDF.ppi plus its helper and server
+      executables) is published for Windows and Linux only.  On macOS the plugin
+      is part of the signed .ppi framework bundle that ships inside
+      web-conversion-cef-runtime, so there is no mac-arm-64 classifier to request;
+      declaring one unconditionally would fail dependency resolution on macOS.
+      Hence this dependency lives in a profile that activates everywhere but mac.
+    -->
+    <profile>
+      <id>WebConversionPlugin</id>
+      <activation>
+        <os>
+          <family>!mac</family>
+        </os>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.datalogics.pdfl</groupId>
+          <artifactId>web-conversion</artifactId>
+          <version>[21.0,22.0)</version>
+          <type>zip</type>
+          <classifier>${jni.classifier}</classifier>
+        </dependency>
+      </dependencies>
+    </profile>
   </profiles>
   <dependencies>
     <dependency>
@@ -111,10 +136,15 @@
       <classifier>javadoc</classifier>
     </dependency>
     <!--
-      The web conversion add-on, released independently of pdfl.  Declaring it is
-      not sufficient on its own: a classified zip is not placed on the library
-      path and is not extracted, so the unpack-web-conversion-runtime execution
-      below does the actual work.
+      The heavy CEF payload half of the web conversion add-on, released
+      independently of pdfl.  On Windows and Linux this is the Chromium runtime
+      only, and the plugin itself comes from the web-conversion artifact declared
+      in the WebConversionPlugin profile above; on macOS this artifact carries the
+      entire signed .ppi bundle, plugin included.
+
+      Declaring either one is not sufficient on its own: a classified zip is not
+      placed on the library path and is not extracted, so the
+      unpack-web-conversion execution below does the actual work.
     -->
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
@@ -168,20 +198,26 @@
             </configuration>
           </execution>
           <!--
-            Unpack the WebToPDF plugin bundle into the same directory as the JNI
-            libraries, which is what java.library.path points at when the sample
-            runs.  Kept as its own execution rather than folded into unpack-jni
-            so that this sample's extra requirement stays obvious.
+            Unpack both halves of the web conversion add-on into the same
+            directory as the JNI libraries, which is what java.library.path points
+            at when the sample runs.  Co-location is required, not incidental: the
+            CEF host runs out of process and is located relative to the loaded
+            plugin, so the plugin, the Chromium runtime and the JNI libraries all
+            have to sit together.
+
+            Kept as its own execution rather than folded into unpack-jni so this
+            sample's extra requirement stays obvious.  On macOS the web-conversion
+            artifact is not declared, so only the runtime half is unpacked here.
           -->
           <execution>
-            <id>unpack-web-conversion-runtime</id>
+            <id>unpack-web-conversion</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
               <includeGroupIds>com.datalogics.pdfl</includeGroupIds>
-              <includeArtifactIds>web-conversion-cef-runtime</includeArtifactIds>
+              <includeArtifactIds>web-conversion,web-conversion-cef-runtime</includeArtifactIds>
               <includeClassifiers>${jni.classifier}</includeClassifiers>
               <includeTypes>zip</includeTypes>
               <outputDirectory>${project.build.directory}/lib</outputDirectory>
