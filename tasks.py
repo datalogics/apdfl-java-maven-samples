@@ -43,6 +43,7 @@ samples_list = [
                 'ContentModification/Watermark/',
                 'DocumentConversion/ColorConvertDocument/',
                 'DocumentConversion/ConvertToOffice/',
+                'DocumentConversion/CreateDocFromWebPage/',
                 'DocumentConversion/CreateDocFromXPS/',
                 'DocumentConversion/FacturXConverter/',
                 'DocumentConversion/PDFAConverter/',
