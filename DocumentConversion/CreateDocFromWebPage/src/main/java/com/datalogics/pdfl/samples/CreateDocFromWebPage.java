@@ -21,9 +21,9 @@ import com.datalogics.PDFL.WebViewportPreset;
  * asset references in a local file resolve against that file's directory.  The
  * optional second argument names the output file.
  *
- * Rendering is performed by the WebToPDF plugin, which embeds Chromium.  That
- * plugin runtime ships as a separate add-on package; see pom.xml, which declares
- * it and unpacks it alongside the JNI libraries.
+ * Rendering is performed by the WebToPDF plugin. The plugin runtime ships as a
+ * separate add-on package; see pom.xml, which declares it and unpacks it
+ * alongside the JNI libraries.
  *
  * Copyright (c) 2026, Datalogics, Inc. All rights reserved.
  *
@@ -85,9 +85,6 @@ public class CreateDocFromWebPage {
             System.out.println("Saved to " + output);
         }
         catch (RuntimeException e) {
-            // Web conversion failures surface as a plain RuntimeException: the
-            // interface layer's error category and plugin result code are not
-            // exposed to Java, so only the message text is available here.
             System.err.println("Conversion failed: " + e.getMessage());
             System.err.println("If the plugin could not be loaded, confirm that the web "
                     + "conversion runtime was unpacked into target/lib (see pom.xml).");

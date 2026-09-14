@@ -9,12 +9,6 @@
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
   <profiles>
-    <!--
-      The five classifiers below are exactly the platforms the WebToPDF plugin
-      supports, so no additional platform gating is needed.  There is
-      deliberately no Intel-macOS or 32-bit Windows profile: the plugin is not
-      published for either.
-    -->
     <profile>
       <id>Windows64</id>
       <activation>
@@ -81,9 +75,7 @@
       The web-conversion plugin zip (DL210WebToPDF.ppi plus its helper and server
       executables) is published for Windows and Linux only.  On macOS the plugin
       is part of the signed .ppi framework bundle that ships inside
-      web-conversion-cef-runtime, so there is no mac-arm-64 classifier to request;
-      declaring one unconditionally would fail dependency resolution on macOS.
-      Hence this dependency lives in a profile that activates everywhere but mac.
+      web-conversion-cef-runtime.
     -->
     <profile>
       <id>WebConversionPlugin</id>
@@ -135,17 +127,6 @@
       <version>[21.0,22.0)</version>
       <classifier>javadoc</classifier>
     </dependency>
-    <!--
-      The heavy CEF payload half of the web conversion add-on, released
-      independently of pdfl.  On Windows and Linux this is the Chromium runtime
-      only, and the plugin itself comes from the web-conversion artifact declared
-      in the WebConversionPlugin profile above; on macOS this artifact carries the
-      entire signed .ppi bundle, plugin included.
-
-      Declaring either one is not sufficient on its own: a classified zip is not
-      placed on the library path and is not extracted, so the
-      unpack-web-conversion execution below does the actual work.
-    -->
     <dependency>
       <groupId>com.datalogics.pdfl</groupId>
       <artifactId>web-conversion-cef-runtime</artifactId>
@@ -200,14 +181,7 @@
           <!--
             Unpack both halves of the web conversion add-on into the same
             directory as the JNI libraries, which is what java.library.path points
-            at when the sample runs.  Co-location is required, not incidental: the
-            CEF host runs out of process and is located relative to the loaded
-            plugin, so the plugin, the Chromium runtime and the JNI libraries all
-            have to sit together.
-
-            Kept as its own execution rather than folded into unpack-jni so this
-            sample's extra requirement stays obvious.  On macOS the web-conversion
-            artifact is not declared, so only the runtime half is unpacked here.
+            at when the sample runs.
           -->
           <execution>
             <id>unpack-web-conversion</id>
