@@ -84,6 +84,12 @@
           <family>!mac</family>
         </os>
       </activation>
+      <repositories>
+        <repository>
+          <id>apdfl-public</id>
+          <url>https://repo.datalogics.com/api/maven/datalogics-enterprise/apdfl-public</url>
+        </repository>
+      </repositories>
       <dependencies>
         <dependency>
           <groupId>com.datalogics.pdfl</groupId>
