@@ -43,6 +43,7 @@ samples_list = [
                 'ContentModification/Watermark/',
                 'DocumentConversion/ColorConvertDocument/',
                 'DocumentConversion/ConvertToOffice/',
+                'DocumentConversion/ConvertWordToPDF/',
                 'DocumentConversion/CreateDocFromWebPage/',
                 'DocumentConversion/CreateDocFromXPS/',
                 'DocumentConversion/FacturXConverter/',
@@ -94,11 +95,19 @@ samples_list = [
         ]
 
 
+def skip_on_mac_intel(sample):
+    # The OfficeToPDF plugin ships for macOS on Apple silicon only.
+    return (platform.system() == 'Darwin' and
+            platform.machine().lower() not in ('arm64', 'aarch64') and
+            'ConvertWordToPDF' in sample)
+
+
 def skip_on_windows_arm(sample):
     # These samples use APDFL features that are not implemented on Windows ARM
-    # for APDFL 21 (Forms Extension and Office conversion).
+    # for APDFL 21 (Forms Extension, Office conversion and the OfficeToPDF
+    # plugin).
     unsupported = ('ConvertXFAToAcroForms', 'ExportFormsData', 'FlattenForms',
-                   'ImportFormsData', 'ConvertToOffice')
+                   'ImportFormsData', 'ConvertToOffice', 'ConvertWordToPDF')
     is_windows_arm = (platform.system() == 'Windows' and
                       platform.machine().lower() in ('arm64', 'aarch64'))
     return is_windows_arm and any(s in sample for s in unsupported)
@@ -122,6 +131,10 @@ def build_samples(ctx):
 
         if skip_on_windows_arm(sample):
             print(f'{sample} not available on Windows ARM')
+            continue
+
+        if skip_on_mac_intel(sample):
+            print(f'{sample} not available on this OS')
             continue
 
         if platform.system() == 'Darwin' and ('ConvertToOffice' in sample or
@@ -189,6 +202,10 @@ def run_samples(ctx):
     for sample in samples_list:
         if skip_on_windows_arm(sample):
             print(f'{sample} not available on Windows ARM')
+            continue
+
+        if skip_on_mac_intel(sample):
+            print(f'{sample} not available on this OS')
             continue
 
         if platform.system() == "Windows":
