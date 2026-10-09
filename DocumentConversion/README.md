@@ -4,6 +4,9 @@ This sample illustrates how to convert colors in a PDF document.
 ## ***ConvertToOffice***
 Converts a PDF to Microsoft Word, Excel, and PowerPoint formats. (Available only for Windows and Linux.)
 
+## ***ConvertWordToPDF***
+Uses the OfficeToPDF plugin to convert a Microsoft Word (.docx) document into a PDF document.
+
 ## ***CreateDocFromXPS***
 Opens a XPS document and converts it to a PDF document. (Available only for Windows and Linux.)
 
