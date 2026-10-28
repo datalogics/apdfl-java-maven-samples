@@ -119,39 +119,125 @@ pipeline {
                             }
                         }
                     }
-                    stage('Build Samples') {
+                    stage('Clean Maven Packages Before Nightly Build') {
                         steps {
-                            echo "Build ${NODE}"
+                            echo "Clean ${NODE}"
                             script {
                                 if (isUnix()) {
                                     sh """. ${ENV_LOC[NODE]}/bin/activate
-                                          invoke build-samples
+                                          invoke clean-maven-packages
                                     """
                                 } else {
                                     bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
-                                          invoke build-samples
+                                          invoke clean-maven-packages
                                     """
                                 }
                             }
                         }
                     }
-                    stage('Run Samples') {
+                    stage('Build Samples using Nightly packages') {
+                        steps {
+                            echo "Build ${NODE}"
+                            script {
+                                // apdfl-internal is not anonymous; tasks.py references
+                                // these from the settings.xml it generates.
+                                withCredentials([usernamePassword(credentialsId: 'repoflow-devauto-password',
+                                                                  usernameVariable: 'REPOFLOW_USER',
+                                                                  passwordVariable: 'REPOFLOW_PASS')]) {
+                                    if (isUnix()) {
+                                        sh """. ${ENV_LOC[NODE]}/bin/activate
+                                              invoke build-samples --pkg-source Nightly
+                                        """
+                                    } else {
+                                        bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
+                                              invoke build-samples --pkg-source Nightly
+                                        """
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    stage('Run Samples using Nightly packages') {
                         steps {
                             echo "Running samples on ${NODE}"
                             script {
                                 if (isUnix()) {
                                     sh """. ${ENV_LOC[NODE]}/bin/activate
-                                          invoke run-samples
+                                          invoke run-samples --pkg-source Nightly
                                     """
                                 } else {
                                     bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
-                                          invoke run-samples
+                                          invoke run-samples --pkg-source Nightly
                                     """
                                 }
                             }
                         }
                     }
-                    stage('Clean Samples After Run') {
+                    stage('Clean Samples After Nightly Run') {
+                        steps {
+                            echo "Clean ${NODE}"
+                            script {
+                                if (isUnix()) {
+                                    sh """. ${ENV_LOC[NODE]}/bin/activate
+                                          invoke clean-samples
+                                    """
+                                } else {
+                                    bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
+                                          invoke clean-samples
+                                    """
+                                }
+                            }
+                        }
+                    }
+                    stage('Clean Maven Packages Before Public Build') {
+                        steps {
+                            echo "Clean ${NODE}"
+                            script {
+                                if (isUnix()) {
+                                    sh """. ${ENV_LOC[NODE]}/bin/activate
+                                          invoke clean-maven-packages
+                                    """
+                                } else {
+                                    bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
+                                          invoke clean-maven-packages
+                                    """
+                                }
+                            }
+                        }
+                    }
+                    stage('Build Samples using Public packages') {
+                        steps {
+                            echo "Build ${NODE}"
+                            script {
+                                if (isUnix()) {
+                                    sh """. ${ENV_LOC[NODE]}/bin/activate
+                                          invoke build-samples --pkg-source Public
+                                    """
+                                } else {
+                                    bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
+                                          invoke build-samples --pkg-source Public
+                                    """
+                                }
+                            }
+                        }
+                    }
+                    stage('Run Samples using Public packages') {
+                        steps {
+                            echo "Running samples on ${NODE}"
+                            script {
+                                if (isUnix()) {
+                                    sh """. ${ENV_LOC[NODE]}/bin/activate
+                                          invoke run-samples --pkg-source Public
+                                    """
+                                } else {
+                                    bat """CALL ${ENV_LOC[NODE]}\\Scripts\\activate
+                                          invoke run-samples --pkg-source Public
+                                    """
+                                }
+                            }
+                        }
+                    }
+                    stage('Clean Samples After Public Run') {
                         steps {
                             echo "Clean ${NODE}"
                             script {

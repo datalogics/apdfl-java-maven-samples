@@ -1,8 +1,9 @@
-from invoke import Collection, task
+from invoke import Collection, Exit, task
 from invoke.tasks import Task
 import platform
 import os
 import pathlib
+import shutil
 import subprocess
 
 samples_list = [
@@ -95,6 +96,82 @@ samples_list = [
         ]
 
 
+# The package sources build-samples can test against:
+#   Nightly - apdfl-internal, where maven-builder publishes every night. Needs
+#             the RepoFlow credentials in REPOFLOW_USER / REPOFLOW_PASS.
+#   Public  - apdfl-public, the anonymous repository the sample POMs name and
+#             customers resolve from. This is the pass that fails when a
+#             release is approved but not actually usable.
+package_sources = ('Nightly', 'Public')
+
+repoflow_url = 'https://repo.datalogics.com/api/maven/datalogics-enterprise'
+
+# Samples for features that are in the nightly packages but not yet in a public
+# release. They are built and run against Nightly only, so adding a sample for a
+# new feature cannot stop the rest of the samples building against Public.
+# Remove the entry once the release that carries the feature is on apdfl-public.
+nightly_only_samples = (
+    'DocumentConversion/ConvertWordToPDF/',  # OfficeToPDF, after 21.4.0
+)
+
+# Generated settings files, one per package source. build/ is git-ignored.
+settings_dir = 'build'
+
+
+def maven_settings(pkg_source):
+    """Writes the settings.xml for pkg_source and returns its absolute path.
+
+    Each pass uses only its own settings, never the node's ~/.m2/settings.xml,
+    so a mirror configured on a node cannot change which repository a pass
+    tests. Nightly mirrors apdfl-public onto apdfl-internal: the sample POMs
+    stay exactly as customers get them, and nothing that only exists on
+    apdfl-public can satisfy the nightly build. The credentials are left as
+    ${env.*} references so the password is never written to disk.
+    """
+    if pkg_source == 'Nightly':
+        missing = [v for v in ('REPOFLOW_USER', 'REPOFLOW_PASS') if not os.environ.get(v)]
+        if missing:
+            raise Exit(f'{" and ".join(missing)} not set -- the Nightly packages on '
+                       f'apdfl-internal need the RepoFlow credentials')
+        body = f"""  <servers>
+    <server>
+      <id>apdfl-internal</id>
+      <username>${{env.REPOFLOW_USER}}</username>
+      <password>${{env.REPOFLOW_PASS}}</password>
+    </server>
+  </servers>
+  <mirrors>
+    <mirror>
+      <id>apdfl-internal</id>
+      <mirrorOf>apdfl-public</mirrorOf>
+      <url>{repoflow_url}/apdfl-internal</url>
+    </mirror>
+  </mirrors>
+"""
+    else:
+        body = ''
+
+    os.makedirs(settings_dir, exist_ok=True)
+    settings = os.path.abspath(os.path.join(settings_dir, f'settings-{pkg_source.lower()}.xml'))
+    with open(settings, 'w', encoding='utf-8', newline='\n') as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0">\n'
+                f'{body}</settings>\n')
+    return settings
+
+
+def check_pkg_source(pkg_source):
+    # An unrecognized value would otherwise build or run every sample against
+    # whatever happened to be resolved last, which passes without testing anything.
+    if pkg_source not in package_sources:
+        raise Exit(f'unknown package source {pkg_source!r}, '
+                   f'expected one of {list(package_sources)}')
+
+
+def skip_for_pkg_source(sample, pkg_source):
+    return pkg_source != 'Nightly' and sample in nightly_only_samples
+
+
 def skip_on_mac_intel(sample):
     # The OfficeToPDF plugin ships for macOS on Apple silicon only.
     return (platform.system() == 'Darwin' and
@@ -123,11 +200,46 @@ def clean_samples(ctx):
             ctx.run('git clean -fdx')
 
 
-@task(pre=[clean_samples])
-def build_samples(ctx):
-    """Builds the APDFL Java Maven samples"""
+@task()
+def clean_maven_packages(ctx):
+    """Removes the APDFL artifacts from the local Maven repository
+
+    The nightly and public packages can share version numbers, and Maven reuses
+    an artifact already in the local repository without asking a remote. A copy
+    left by the nightly pass would then stand in for one that was never
+    published, so the two passes each start without any com.datalogics.pdfl
+    artifacts. Everything else stays so third-party dependencies are not
+    downloaded twice.
+    """
+    # Asked of Maven rather than assumed, because CI sets a job-local
+    # repository through MAVEN_OPTS.
+    result = ctx.run('mvn -q -DforceStdout '
+                     'org.apache.maven.plugins:maven-help-plugin:3.5.1:evaluate '
+                     '-Dexpression=settings.localRepository', hide='out')
+    local_repo = result.stdout.strip()
+    if not local_repo or not os.path.isabs(local_repo):
+        raise Exit(f'could not determine the local Maven repository, got {local_repo!r}')
+
+    apdfl_dir = os.path.join(local_repo, 'com', 'datalogics', 'pdfl')
+    print(f'... removing {apdfl_dir}')
+    shutil.rmtree(apdfl_dir, ignore_errors=True)
+
+
+# Defaulted so a bare `invoke build-samples` still works; invoke never takes an
+# argument with a default positionally, so it is `--pkg-source Public`.
+@task(pre=[clean_samples],
+      help={'pkg_source': f'Packages to build against: {" or ".join(package_sources)}'})
+def build_samples(ctx, pkg_source='Nightly'):
+    """Builds the APDFL Java Maven samples against the Nightly or Public packages"""
+    check_pkg_source(pkg_source)
+    settings = maven_settings(pkg_source)
+
     for sample in samples_list:
         full_path = os.path.join(os.getcwd(), sample)
+
+        if skip_for_pkg_source(sample, pkg_source):
+            print(f'{sample} not yet in the {pkg_source} packages')
+            continue
 
         if skip_on_windows_arm(sample):
             print(f'{sample} not available on Windows ARM')
@@ -152,7 +264,7 @@ def build_samples(ctx):
             continue
 
         with ctx.cd(full_path):
-            ctx.run('mvn package')
+            ctx.run(f'mvn -s "{settings}" package')
 
 
 def remove_last_path_entry():
@@ -191,15 +303,20 @@ def execute_java_sample(target_dir, sample_name, full_path, apdfl_key):
         raise RuntimeError(f"{sample_name} sample failed to run.")
 
 
-@task()
-def run_samples(ctx):
+@task(help={'pkg_source': f'Packages the samples were built against: {" or ".join(package_sources)}'})
+def run_samples(ctx, pkg_source='Nightly'):
     """Runs the APDFL Java Maven samples"""
+    check_pkg_source(pkg_source)
     apdfl_key = os.environ.get("APDFL_KEY")
 
     if apdfl_key is None:
         raise ValueError("APDFL_KEY environment variable not set.")
 
     for sample in samples_list:
+        if skip_for_pkg_source(sample, pkg_source):
+            print(f'{sample} not yet in the {pkg_source} packages')
+            continue
+
         if skip_on_windows_arm(sample):
             print(f'{sample} not available on Windows ARM')
             continue
